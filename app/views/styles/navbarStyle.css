@@ -1,0 +1,66 @@
+/* Centrar los elementos del navbar-collapse */
+@media (min-width: 992px) { /* Aplicar esto solo para pantallas grandes */
+    .navbar {
+        display: flex;
+        justify-content: space-between; /* Distribuye el espacio antes, entre y después de los elementos */
+        align-items: center; /* Centra los elementos verticalmente */
+    }
+
+    .navbar-collapse {
+        justify-content: center; /* Centra los elementos del navbar-collapse horizontalmente */
+        flex-grow: 1; /* Permite que el navbar-collapse crezca */
+    }
+
+    .navbar-nav {
+        flex-direction: row; /* Asegura que los elementos de la nav estén en fila */
+        justify-content:end; /* Centra los elementos de la nav */
+        flex-grow: 1;
+    }
+
+    .form-inline {
+        flex-grow: 1;
+        justify-content:flex-start; /* Alinea el formulario de búsqueda hacia el final del contenedor */
+    }
+}
+
+
+/* Estilos de la barra de navegación */
+.navbar-custom {
+    background: rgb(255, 255, 255,0);
+}
+
+body {
+    background: linear-gradient(to bottom, #ffffff 0%, #999999 50%, #000000 100%);
+    color: #333; /* Establecer un color de texto adecuado para la visibilidad */
+    min-height: 100vh; /* Asegurarse de que el degradado cubra toda la altura */
+    margin: 0; /* Remover el margen por defecto */
+}
+
+.nav-link {
+    color: #555 !important;
+    font-weight: 600;
+}
+
+.navbar-toggler {
+    border-color: #333;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(51, 51, 51, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.form-control {
+    background-color: transparent;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.btn-outline-success {
+    color: #333;
+    border-color: #333;
+}
+
+.btn-outline-success:hover {
+    background-color: #333;
+    color: white;
+}
