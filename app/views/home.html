@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- Asegúrate de incluir Bootstrap si tu navbar lo utiliza -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./styles/homeStyle.css">
 
-    <!-- Contenedor donde se cargará tu navbar -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+    </style>
+
+</head>
+
+<body>
+    <!-- Contenedor donde se cargará navbar -->
     <div id="navbar-container"></div>
     <script>
-        // Carga tu navbar al inicio del documento
-        fetch('layout.html')
+        // Cargar tu navbar al inicio del documento
+        fetch('./layouts/navbar/homenavbar.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('navbar-container').innerHTML = data;
@@ -21,14 +26,31 @@
             .catch(error => console.error('Error al cargar la navbar:', error));
     </script>
 
-    
-    <!-- El resto de tu contenido -->
+    <div class="main-content">
+        <p class="company-description">
+            CareerPulse is your strategic partner in the search for new professional opportunities.
+            We connect talent with innovation to propel your career to the next level.
+        </p>
+        <br>
+        <a class="find-job-btn" href="./jobListing.html">Find New Job</a>
+    </div>
 
     <!-- Incluye jQuery y Bootstrap si tu navbar los utiliza -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-
-    
-
 </body>
+
+<footer>
+    <div id="footer-container"></div>
+    <script>
+        // Cargar tu footer al final del documento
+        fetch('./layouts/footer/layout.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error al cargar el footer:', error));
+    </script>
+</footer>
+
 </html>

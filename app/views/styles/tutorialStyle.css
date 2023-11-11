@@ -1,0 +1,23 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #ffffff 0%, #999999 50%, #000000 100%);
+    color: #333;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+p, li {
+    color: #666;
+    font-weight: 100;
+}
+
+.content {
+    background-color: #fff; /* Fondo claro para el contenido */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave para añadir profundidad */
+    margin-bottom: 20px;
+    background-color: rgb(255,255,255,0.5);
+    text-align: center;
+}

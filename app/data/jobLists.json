@@ -1,0 +1,782 @@
+[
+    {
+        "_id": "20231111151902dd923a2762",
+        "employerId": "20231111151902f083c4970c",
+        "title": "HR Specialist",
+        "description": "Join Nike as a Sales Manager.",
+        "requirements": [
+            "Proficiency in MS Office",
+            "Fluency in English"
+        ],
+        "skills": [
+            "Technical Writing",
+            "Teamwork"
+        ],
+        "salaryRange": {
+            "min": 61056,
+            "max": 89548
+        },
+        "jobType": "Remote",
+        "location": "Texas",
+        "company": {
+            "description": "American multinational corporation engaged in the design and manufacturing of footwear, apparel, and accessories",
+            "logo": "/app/views/assets/BusinessLogos/nike.png"
+        },
+        "postedAt": "2023-10-03T15:19:02.759776",
+        "status": "active"
+    },
+    {
+        "_id": "20231111151902c99ae68b03",
+        "employerId": "2023111115190256f6e41fb2",
+        "title": "Product Designer",
+        "description": "Join Toyota as a Marketing Director.",
+        "requirements": [
+            "Fluency in English",
+            "Proficiency in MS Office"
+        ],
+        "skills": [
+            "Teamwork",
+            "Project Management"
+        ],
+        "salaryRange": {
+            "min": 69549,
+            "max": 102366
+        },
+        "jobType": "Part-Time",
+        "location": "Texas",
+        "company": {
+            "description": "Japanese multinational automotive manufacturer",
+            "logo": "/app/views/assets/BusinessLogos/toyota.png"
+        },
+        "postedAt": "2023-09-28T15:19:02.760776",
+        "status": "active"
+    },
+    {
+        "_id": "202311111519022c3e7c96ef",
+        "employerId": "2023111115190218d2d03ae5",
+        "title": "Software Engineer",
+        "description": "Join Costco as a Project Manager.",
+        "requirements": [
+            "Bachelor's Degree",
+            "Experience with CRM"
+        ],
+        "skills": [
+            "Marketing Analytics",
+            "Teamwork"
+        ],
+        "salaryRange": {
+            "min": 59281,
+            "max": 112103
+        },
+        "jobType": "Part-Time",
+        "location": "New York",
+        "company": {
+            "description": "Multinational corporation that operates a chain of membership-only warehouse clubs",
+            "logo": "/app/views/assets/BusinessLogos/costco.png"
+        },
+        "postedAt": "2023-09-25T15:19:02.760776",
+        "status": "active"
+    },
+    {
+        "_id": "202311111519025590da0b89",
+        "employerId": "20231111151902832381a6ad",
+        "title": "Project Manager",
+        "description": "Join Nike as a Operations Coordinator.",
+        "requirements": [
+            "Experience with CRM",
+            "Understanding of cloud services"
+        ],
+        "skills": [
+            "Analytical Thinking",
+            "Communication"
+        ],
+        "salaryRange": {
+            "min": 61437,
+            "max": 110760
+        },
+        "jobType": "Part-Time",
+        "location": "Remote",
+        "company": {
+            "description": "American multinational corporation engaged in the design and manufacturing of footwear, apparel, and accessories",
+            "logo": "/app/views/assets/BusinessLogos/nike.png"
+        },
+        "postedAt": "2023-10-12T15:19:02.760776",
+        "status": "active"
+    },
+    {
+        "_id": "2023111115190271779441e3",
+        "employerId": "2023111115190226cb24a3ab",
+        "title": "Marketing Director",
+        "description": "Join Costco as a Data Scientist.",
+        "requirements": [
+            "3+ years of experience",
+            "Experience with CRM"
+        ],
+        "skills": [
+            "Teamwork",
+            "Leadership"
+        ],
+        "salaryRange": {
+            "min": 57012,
+            "max": 115041
+        },
+        "jobType": "Internship",
+        "location": "California",
+        "company": {
+            "description": "Multinational corporation that operates a chain of membership-only warehouse clubs",
+            "logo": "/app/views/assets/BusinessLogos/costco.png"
+        },
+        "postedAt": "2023-09-30T15:19:02.760776",
+        "status": "active"
+    },
+    {
+        "_id": "2023111115190212949e0b03",
+        "employerId": "20231111151902bb03c1ff7c",
+        "title": "Project Manager",
+        "description": "Join Oracle as a Software Engineer.",
+        "requirements": [
+            "Understanding of cloud services",
+            "Proficiency in MS Office"
+        ],
+        "skills": [
+            "Marketing Analytics",
+            "Communication"
+        ],
+        "salaryRange": {
+            "min": 50483,
+            "max": 89626
+        },
+        "jobType": "Internship",
+        "location": "California",
+        "company": {
+            "description": "American multinational computer technology corporation",
+            "logo": "/app/views/assets/BusinessLogos/oracle.png"
+        },
+        "postedAt": "2023-09-16T15:19:02.760776",
+        "status": "active"
+    },
+    {
+        "_id": "202311111519022348cb8dca",
+        "employerId": "20231111151902dd5fed4fdb",
+        "title": "Marketing Director",
+        "description": "Join Oracle as a Marketing Director.",
+        "requirements": [
+            "Fluency in English",
+            "3+ years of experience"
+        ],
+        "skills": [
+            "Marketing Analytics",
+            "Technical Writing"
+        ],
+        "salaryRange": {
+            "min": 62377,
+            "max": 103200
+        },
+        "jobType": "Internship",
+        "location": "California",
+        "company": {
+            "description": "American multinational computer technology corporation",
+            "logo": "/app/views/assets/BusinessLogos/oracle.png"
+        },
+        "postedAt": "2023-10-14T15:19:02.760776",
+        "status": "closed"
+    },
+    {
+        "_id": "2023111115190257f938cdf9",
+        "employerId": "202311111519026657bc7869",
+        "title": "Project Manager",
+        "description": "Join Toyota as a Sales Manager.",
+        "requirements": [
+            "Bachelor's Degree",
+            "Understanding of cloud services"
+        ],
+        "skills": [
+            "Marketing Analytics",
+            "Creativity"
+        ],
+        "salaryRange": {
+            "min": 58613,
+            "max": 102936
+        },
+        "jobType": "Full-Time",
+        "location": "California",
+        "company": {
+            "description": "Japanese multinational automotive manufacturer",
+            "logo": "/app/views/assets/BusinessLogos/toyota.png"
+        },
+        "postedAt": "2023-10-12T15:19:02.760776",
+        "status": "closed"
+    },
+    {
+        "_id": "20231111151902a839382690",
+        "employerId": "20231111151902d36fd67a40",
+        "title": "HR Specialist",
+        "description": "Join Amazon as a Project Manager.",
+        "requirements": [
+            "Proficiency in MS Office",
+            "Experience with CRM"
+        ],
+        "skills": [
+            "Teamwork",
+            "Creativity"
+        ],
+        "salaryRange": {
+            "min": 62857,
+            "max": 75245
+        },
+        "jobType": "Remote",
+        "location": "New York",
+        "company": {
+            "description": "Multinational technology company focusing on e-commerce, cloud computing, and AI",
+            "logo": "/app/views/assets/BusinessLogos/amazon.png"
+        },
+        "postedAt": "2023-11-07T15:19:02.760776",
+        "status": "closed"
+    },
+    {
+        "_id": "20231111151902c4a0105b7f",
+        "employerId": "20231111151902e5f8e9a78b",
+        "title": "Product Designer",
+        "description": "Join Amazon as a Software Engineer.",
+        "requirements": [
+            "Understanding of cloud services",
+            "Proficiency in MS Office"
+        ],
+        "skills": [
+            "Project Management",
+            "Leadership"
+        ],
+        "salaryRange": {
+            "min": 65023,
+            "max": 108969
+        },
+        "jobType": "Internship",
+        "location": "Remote",
+        "company": {
+            "description": "Multinational technology company focusing on e-commerce, cloud computing, and AI",
+            "logo": "/app/views/assets/BusinessLogos/amazon.png"
+        },
+        "postedAt": "2023-09-22T15:19:02.760776",
+        "status": "active"
+    },
+    {
+        "_id": "20231111151902a433f05276",
+        "employerId": "202311111519021ff458fc8c",
+        "title": "Product Designer",
+        "description": "Join Toyota as a Data Scientist.",
+        "requirements": [
+            "Bachelor's Degree",
+            "Understanding of cloud services"
+        ],
+        "skills": [
+            "Leadership",
+            "Project Management"
+        ],
+        "salaryRange": {
+            "min": 54315,
+            "max": 78984
+        },
+        "jobType": "Part-Time",
+        "location": "New York",
+        "company": {
+            "description": "Japanese multinational automotive manufacturer",
+            "logo": "/app/views/assets/BusinessLogos/toyota.png"
+        },
+        "postedAt": "2023-10-28T15:19:02.760776",
+        "status": "active"
+    },
+    {
+        "_id": "20231111151902c639c826b3",
+        "employerId": "20231111151902fbc61daadb",
+        "title": "Data Scientist",
+        "description": "Join Toyota as a Project Manager.",
+        "requirements": [
+            "Understanding of cloud services",
+            "Experience with CRM"
+        ],
+        "skills": [
+            "Creativity",
+            "Technical Writing"
+        ],
+        "salaryRange": {
+            "min": 54041,
+            "max": 91266
+        },
+        "jobType": "Remote",
+        "location": "Remote",
+        "company": {
+            "description": "Japanese multinational automotive manufacturer",
+            "logo": "/app/views/assets/BusinessLogos/toyota.png"
+        },
+        "postedAt": "2023-10-15T15:19:02.760776",
+        "status": "closed"
+    },
+    {
+        "_id": "2023111115190259164ade1e",
+        "employerId": "20231111151902a7fe1a4b90",
+        "title": "Project Manager",
+        "description": "Join Costco as a Marketing Director.",
+        "requirements": [
+            "Experience with CRM",
+            "Bachelor's Degree"
+        ],
+        "skills": [
+            "Analytical Thinking",
+            "Project Management"
+        ],
+        "salaryRange": {
+            "min": 53709,
+            "max": 108442
+        },
+        "jobType": "Full-Time",
+        "location": "Texas",
+        "company": {
+            "description": "Multinational corporation that operates a chain of membership-only warehouse clubs",
+            "logo": "/app/views/assets/BusinessLogos/costco.png"
+        },
+        "postedAt": "2023-10-17T15:19:02.760776",
+        "status": "active"
+    },
+    {
+        "_id": "20231111151902d794ee803f",
+        "employerId": "202311111519022c3675fc36",
+        "title": "HR Specialist",
+        "description": "Join Nike as a Project Manager.",
+        "requirements": [
+            "Fluency in English",
+            "Experience with CRM"
+        ],
+        "skills": [
+            "Leadership",
+            "Project Management"
+        ],
+        "salaryRange": {
+            "min": 58850,
+            "max": 88243
+        },
+        "jobType": "Full-Time",
+        "location": "Texas",
+        "company": {
+            "description": "American multinational corporation engaged in the design and manufacturing of footwear, apparel, and accessories",
+            "logo": "/app/views/assets/BusinessLogos/nike.png"
+        },
+        "postedAt": "2023-10-15T15:19:02.760776",
+        "status": "closed"
+    },
+    {
+        "_id": "202311111519023c6805b048",
+        "employerId": "20231111151902ac9ec0a277",
+        "title": "Operations Coordinator",
+        "description": "Join GymShark as a HR Specialist.",
+        "requirements": [
+            "Understanding of cloud services",
+            "Bachelor's Degree"
+        ],
+        "skills": [
+            "Project Management",
+            "Creativity"
+        ],
+        "salaryRange": {
+            "min": 61444,
+            "max": 73086
+        },
+        "jobType": "Remote",
+        "location": "New York",
+        "company": {
+            "description": "Fitness apparel and accessories brand",
+            "logo": "/app/views/assets/BusinessLogos/gymshark.png"
+        },
+        "postedAt": "2023-10-14T15:19:02.760776",
+        "status": "active"
+    },
+    {
+        "_id": "2023111115190222c3117250",
+        "employerId": "20231111151902841d7e0382",
+        "title": "HR Specialist",
+        "description": "Join Costco as a Software Engineer.",
+        "requirements": [
+            "Experience with CRM",
+            "Proficiency in MS Office"
+        ],
+        "skills": [
+            "Marketing Analytics",
+            "Project Management"
+        ],
+        "salaryRange": {
+            "min": 59961,
+            "max": 91122
+        },
+        "jobType": "Full-Time",
+        "location": "Remote",
+        "company": {
+            "description": "Multinational corporation that operates a chain of membership-only warehouse clubs",
+            "logo": "/app/views/assets/BusinessLogos/costco.png"
+        },
+        "postedAt": "2023-11-08T15:19:02.760776",
+        "status": "closed"
+    },
+    {
+        "_id": "2023111115190228fd497b75",
+        "employerId": "20231111151902c99e27db94",
+        "title": "Software Engineer",
+        "description": "Join Toyota as a Software Engineer.",
+        "requirements": [
+            "Experience with CRM",
+            "Proficiency in MS Office"
+        ],
+        "skills": [
+            "Analytical Thinking",
+            "Teamwork"
+        ],
+        "salaryRange": {
+            "min": 59279,
+            "max": 95414
+        },
+        "jobType": "Internship",
+        "location": "Remote",
+        "company": {
+            "description": "Japanese multinational automotive manufacturer",
+            "logo": "/app/views/assets/BusinessLogos/toyota.png"
+        },
+        "postedAt": "2023-10-19T15:19:02.760776",
+        "status": "closed"
+    },
+    {
+        "_id": "20231111151902958e2dec9d",
+        "employerId": "20231111151902d33b3258d6",
+        "title": "Data Scientist",
+        "description": "Join Nike as a Operations Coordinator.",
+        "requirements": [
+            "3+ years of experience",
+            "Understanding of cloud services"
+        ],
+        "skills": [
+            "Project Management",
+            "Leadership"
+        ],
+        "salaryRange": {
+            "min": 54024,
+            "max": 114229
+        },
+        "jobType": "Part-Time",
+        "location": "New York",
+        "company": {
+            "description": "American multinational corporation engaged in the design and manufacturing of footwear, apparel, and accessories",
+            "logo": "/app/views/assets/BusinessLogos/nike.png"
+        },
+        "postedAt": "2023-11-01T15:19:02.760776",
+        "status": "closed"
+    },
+    {
+        "_id": "20231111151902ca19336ee7",
+        "employerId": "20231111151902d8dcd24c30",
+        "title": "Data Scientist",
+        "description": "Join GymShark as a Operations Coordinator.",
+        "requirements": [
+            "Proficiency in MS Office",
+            "Fluency in English"
+        ],
+        "skills": [
+            "Marketing Analytics",
+            "Leadership"
+        ],
+        "salaryRange": {
+            "min": 56114,
+            "max": 114256
+        },
+        "jobType": "Internship",
+        "location": "California",
+        "company": {
+            "description": "Fitness apparel and accessories brand",
+            "logo": "/app/views/assets/BusinessLogos/gymshark.png"
+        },
+        "postedAt": "2023-09-24T15:19:02.760776",
+        "status": "active"
+    },
+    {
+        "_id": "20231111151902d221ef6871",
+        "employerId": "20231111151902af71d64b5a",
+        "title": "Project Manager",
+        "description": "Join Costco as a Marketing Director.",
+        "requirements": [
+            "Bachelor's Degree",
+            "Understanding of cloud services"
+        ],
+        "skills": [
+            "Analytical Thinking",
+            "Creativity"
+        ],
+        "salaryRange": {
+            "min": 52744,
+            "max": 89062
+        },
+        "jobType": "Internship",
+        "location": "Texas",
+        "company": {
+            "description": "Multinational corporation that operates a chain of membership-only warehouse clubs",
+            "logo": "/app/views/assets/BusinessLogos/costco.png"
+        },
+        "postedAt": "2023-09-16T15:19:02.760776",
+        "status": "closed"
+    },
+    {
+        "_id": "20231111151902057cc4e6e8",
+        "employerId": "20231111151902aa02752a69",
+        "title": "Operations Coordinator",
+        "description": "Join Toyota as a Sales Manager.",
+        "requirements": [
+            "Experience with CRM",
+            "3+ years of experience"
+        ],
+        "skills": [
+            "Technical Writing",
+            "Communication"
+        ],
+        "salaryRange": {
+            "min": 61908,
+            "max": 115186
+        },
+        "jobType": "Remote",
+        "location": "Remote",
+        "company": {
+            "description": "Japanese multinational automotive manufacturer",
+            "logo": "/app/views/assets/BusinessLogos/toyota.png"
+        },
+        "postedAt": "2023-10-12T15:19:02.760776",
+        "status": "active"
+    },
+    {
+        "_id": "2023111115190223e9673b9d",
+        "employerId": "202311111519028ba897b6ca",
+        "title": "HR Specialist",
+        "description": "Join Oracle as a HR Specialist.",
+        "requirements": [
+            "Understanding of cloud services",
+            "Bachelor's Degree"
+        ],
+        "skills": [
+            "Analytical Thinking",
+            "Project Management"
+        ],
+        "salaryRange": {
+            "min": 61261,
+            "max": 109859
+        },
+        "jobType": "Remote",
+        "location": "New York",
+        "company": {
+            "description": "American multinational computer technology corporation",
+            "logo": "/app/views/assets/BusinessLogos/oracle.png"
+        },
+        "postedAt": "2023-10-24T15:19:02.760776",
+        "status": "closed"
+    },
+    {
+        "_id": "20231111151902cd4db14e80",
+        "employerId": "2023111115190204e2e78ccf",
+        "title": "Sales Manager",
+        "description": "Join Costco as a Product Designer.",
+        "requirements": [
+            "Experience with CRM",
+            "Bachelor's Degree"
+        ],
+        "skills": [
+            "Technical Writing",
+            "Analytical Thinking"
+        ],
+        "salaryRange": {
+            "min": 53206,
+            "max": 88029
+        },
+        "jobType": "Full-Time",
+        "location": "Remote",
+        "company": {
+            "description": "Multinational corporation that operates a chain of membership-only warehouse clubs",
+            "logo": "/app/views/assets/BusinessLogos/costco.png"
+        },
+        "postedAt": "2023-11-10T15:19:02.760776",
+        "status": "closed"
+    },
+    {
+        "_id": "20231111151902c71e456674",
+        "employerId": "202311111519020f0a883d88",
+        "title": "Product Designer",
+        "description": "Join GymShark as a Operations Coordinator.",
+        "requirements": [
+            "Bachelor's Degree",
+            "Understanding of cloud services"
+        ],
+        "skills": [
+            "Project Management",
+            "Creativity"
+        ],
+        "salaryRange": {
+            "min": 60224,
+            "max": 92984
+        },
+        "jobType": "Remote",
+        "location": "California",
+        "company": {
+            "description": "Fitness apparel and accessories brand",
+            "logo": "/app/views/assets/BusinessLogos/gymshark.png"
+        },
+        "postedAt": "2023-10-08T15:19:02.760776",
+        "status": "active"
+    },
+    {
+        "_id": "2023111115190218268bcdf4",
+        "employerId": "20231111151902c779ad6a5c",
+        "title": "Data Scientist",
+        "description": "Join Nike as a Software Engineer.",
+        "requirements": [
+            "Bachelor's Degree",
+            "Proficiency in MS Office"
+        ],
+        "skills": [
+            "Analytical Thinking",
+            "Marketing Analytics"
+        ],
+        "salaryRange": {
+            "min": 61097,
+            "max": 96565
+        },
+        "jobType": "Full-Time",
+        "location": "Remote",
+        "company": {
+            "description": "American multinational corporation engaged in the design and manufacturing of footwear, apparel, and accessories",
+            "logo": "/app/views/assets/BusinessLogos/nike.png"
+        },
+        "postedAt": "2023-10-20T15:19:02.760776",
+        "status": "closed"
+    },
+    {
+        "_id": "2023111115190226cba7f957",
+        "employerId": "20231111151902c6431d06b1",
+        "title": "Software Engineer",
+        "description": "Join Costco as a Operations Coordinator.",
+        "requirements": [
+            "Experience with CRM",
+            "3+ years of experience"
+        ],
+        "skills": [
+            "Project Management",
+            "Leadership"
+        ],
+        "salaryRange": {
+            "min": 54892,
+            "max": 107570
+        },
+        "jobType": "Remote",
+        "location": "Remote",
+        "company": {
+            "description": "Multinational corporation that operates a chain of membership-only warehouse clubs",
+            "logo": "/app/views/assets/BusinessLogos/costco.png"
+        },
+        "postedAt": "2023-09-23T15:19:02.760776",
+        "status": "active"
+    },
+    {
+        "_id": "202311111519024837c5d3b7",
+        "employerId": "20231111151902c65507d29f",
+        "title": "HR Specialist",
+        "description": "Join Nike as a Marketing Director.",
+        "requirements": [
+            "Fluency in English",
+            "Bachelor's Degree"
+        ],
+        "skills": [
+            "Leadership",
+            "Project Management"
+        ],
+        "salaryRange": {
+            "min": 52163,
+            "max": 106930
+        },
+        "jobType": "Internship",
+        "location": "New York",
+        "company": {
+            "description": "American multinational corporation engaged in the design and manufacturing of footwear, apparel, and accessories",
+            "logo": "/app/views/assets/BusinessLogos/nike.png"
+        },
+        "postedAt": "2023-10-20T15:19:02.760776",
+        "status": "active"
+    },
+    {
+        "_id": "2023111115190252c9e20bed",
+        "employerId": "20231111151902a35b785a84",
+        "title": "Product Designer",
+        "description": "Join Oracle as a Sales Manager.",
+        "requirements": [
+            "3+ years of experience",
+            "Fluency in English"
+        ],
+        "skills": [
+            "Creativity",
+            "Communication"
+        ],
+        "salaryRange": {
+            "min": 59946,
+            "max": 81732
+        },
+        "jobType": "Part-Time",
+        "location": "California",
+        "company": {
+            "description": "American multinational computer technology corporation",
+            "logo": "/app/views/assets/BusinessLogos/oracle.png"
+        },
+        "postedAt": "2023-10-27T15:19:02.760776",
+        "status": "closed"
+    },
+    {
+        "_id": "20231111151902823b2314ed",
+        "employerId": "202311111519026ad66f6f6c",
+        "title": "Data Scientist",
+        "description": "Join Amazon as a Sales Manager.",
+        "requirements": [
+            "Experience with CRM",
+            "Understanding of cloud services"
+        ],
+        "skills": [
+            "Marketing Analytics",
+            "Project Management"
+        ],
+        "salaryRange": {
+            "min": 56023,
+            "max": 72145
+        },
+        "jobType": "Remote",
+        "location": "Remote",
+        "company": {
+            "description": "Multinational technology company focusing on e-commerce, cloud computing, and AI",
+            "logo": "/app/views/assets/BusinessLogos/amazon.png"
+        },
+        "postedAt": "2023-10-21T15:19:02.760776",
+        "status": "closed"
+    },
+    {
+        "_id": "20231111151902170b402ce6",
+        "employerId": "20231111151902c3a5c0fd93",
+        "title": "HR Specialist",
+        "description": "Join GymShark as a Data Scientist.",
+        "requirements": [
+            "Understanding of cloud services",
+            "Bachelor's Degree"
+        ],
+        "skills": [
+            "Project Management",
+            "Teamwork"
+        ],
+        "salaryRange": {
+            "min": 61164,
+            "max": 76016
+        },
+        "jobType": "Full-Time",
+        "location": "Texas",
+        "company": {
+            "description": "Fitness apparel and accessories brand",
+            "logo": "/app/views/assets/BusinessLogos/gymshark.png"
+        },
+        "postedAt": "2023-10-09T15:19:02.760776",
+        "status": "active"
+    }
+]

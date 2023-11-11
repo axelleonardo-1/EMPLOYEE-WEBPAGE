@@ -9,6 +9,8 @@
     .navbar-collapse {
         justify-content: center; /* Centra los elementos del navbar-collapse horizontalmente */
         flex-grow: 1; /* Permite que el navbar-collapse crezca */
+        font-family: 'Lato', sans-serif;
+        font-family: 'Playfair Display', serif;
     }
 
     .navbar-nav {
@@ -24,21 +26,13 @@
 }
 
 
-/* Estilos de la barra de navegación */
-.navbar-custom {
-    background: rgb(255, 255, 255,0);
-}
-
-body {
-    background: linear-gradient(to bottom, #ffffff 0%, #999999 50%, #000000 100%);
-    color: #333; /* Establecer un color de texto adecuado para la visibilidad */
-    min-height: 100vh; /* Asegurarse de que el degradado cubra toda la altura */
-    margin: 0; /* Remover el margen por defecto */
-}
-
 .nav-link {
-    color: #555 !important;
+    color: #555 ;
     font-weight: 600;
+}
+
+.nav-link:hover{
+    color: black;
 }
 
 .navbar-toggler {
