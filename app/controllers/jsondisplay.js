@@ -41,7 +41,7 @@ function createJobCard(job) {
         <!-- Fila para el botón Apply -->
         <div class="row">
             <div class="col-12 text-center">
-                <button class="btn btn-primary mb-2">Apply</button>
+                <button class="btn btn-primary mb-2 apply-btn" data-id="${job._id}">Details</button>
             </div>
         </div>
     </div>
@@ -55,6 +55,16 @@ function displayJobs(jobs) {
     const jobsContainer = document.getElementById('jobs-container');
     const rows = jobs.map(job => createJobCard(job)).join('');
     jobsContainer.innerHTML = `<div class="row">${rows}</div>`;
+    
+    // Agrega event listeners a los botones Apply
+    document.querySelectorAll('.apply-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const jobId = this.getAttribute('data-id');
+            // Aquí podrías redireccionar a la nueva página HTML con los detalles del trabajo o abrir un modal, etc.
+            // Por ejemplo:
+            window.location.href = `./job-detail.html?jobId=${jobId}`;
+        });
+    });
 }
 
 // jsondisplay.js

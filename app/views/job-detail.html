@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details</title>
+    <!-- Bootstrap y otros enlaces aquí -->
+</head>
+<body>
+    <!-- Contenedor donde se cargará navbar -->
+    <div id="navbar-container"></div>
+    <script>
+        // Cargar tu navbar al inicio del documento
+        fetch('./layouts/navbar/homenavbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error al cargar la navbar:', error));
+    </script>
+
+    <div class="container" id="job-detail-container">
+        <!-- Los detalles del trabajo se cargarán aquí -->
+    </div>
+    
+    <!-- Scripts necesarios aquí -->
+    <script src="/app/controllers/jobDetailDisplay.js"></script>
+</body>
+
+<footer>
+    <div id="footer-container"></div>
+    <script>
+        // Cargar tu footer al final del documento
+        fetch('./layouts/footer/layout.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error al cargar el footer:', error));
+    </script>
+</footer>
+
+</html>

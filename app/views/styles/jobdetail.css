@@ -1,0 +1,72 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Estilos para los detalles del trabajo */
+#job-detail-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Estilos para las columnas */
+.col-md-6 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Estilo para la imagen de la empresa */
+.img-fluid {
+    width: 250px;
+    height: 250px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Títulos y texto */
+h2 {
+    color: #000;
+    font-weight: bold;
+}
+
+p {
+    line-height: 1.6;
+}
+
+/* Estilos específicos para etiquetas de detalles */
+p strong {
+    color: #000;
+    font-weight: 600;
+}
+
+/* Estilo para el botón de aplicar (si existe) */
+.btn-primary {
+    background-color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #555;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .col-md-6 {
+        margin-bottom: 20px;
+    }
+
+    /* Opcionalmente puedes hacer que la imagen no se muestre en dispositivos más pequeños */
+    .img-fluid {
+        display: none;
+    }
+}
