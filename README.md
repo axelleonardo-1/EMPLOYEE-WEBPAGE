@@ -59,17 +59,17 @@ Se adopta un enfoque minimalista y profesional, con esquemas de color monocromá
         "details": "Descripción del trabajo realizado"
       }
     ]
-  },
-  "settings": {
-    "notificationPreferences": {
-      "email": true,
-      "sms": false
-    },
-    "theme": "dark/light"
-  },
-  "createdAt": "fecha de creación ISODate",
-  "updatedAt": "fecha de última actualización ISODate"
-}
+//   },
+//   "settings": {
+//     "notificationPreferences": {
+//       "email": true,
+//       "sms": false
+//     },
+//     "theme": "dark/light"
+//   },
+//   "createdAt": "fecha de creación ISODate",
+//   "updatedAt": "fecha de última actualización ISODate"
+// }
 
 ```
 

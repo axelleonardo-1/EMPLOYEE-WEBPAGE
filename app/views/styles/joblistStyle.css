@@ -1,0 +1,63 @@
+/* Estilos globales */
+body {
+    background-color: #f4f4f4; /* Color de fondo claro para todo el sitio */
+    color: #333; /* Color de texto oscuro para contraste */
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Estilos de la tarjeta */
+.card {
+    margin-bottom: 2rem; /* Espacio debajo de cada tarjeta */
+    background-color: #fff; /* Fondo blanco para el contenido de la tarjeta */
+    border: 0; /* Sin bordes para un look más limpio */
+    border-radius: 0.5rem; /* Bordes ligeramente redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+}
+
+.card-img {
+    width: 100%; /* El logo ocupa todo el ancho de su contenedor */
+    padding: 1rem; /* Espacio interior para evitar que el logo toque los bordes de la tarjeta */
+    object-fit: contain; /* Asegura que el logo se ajuste dentro del espacio disponible */
+}
+
+.card-body {
+    padding: 1rem; /* Espacio interior para el contenido de la tarjeta */
+}
+
+.card-title {
+    color: #000; /* Títulos en negro para destacar */
+    margin-bottom: 0.5rem;
+}
+
+.card-text, .text-muted {
+    color: #555; /* Texto un poco más claro que el color de título */
+}
+
+ul {
+    padding-left: 1.2rem; /* Espacio para la viñeta de la lista */
+}
+
+li {
+    margin-bottom: 0.25rem; /* Espacio entre elementos de la lista */
+}
+
+.btn-primary {
+    background-color: #333; /* Botón que sigue el esquema de color monocromático */
+    border-color: #333; /* Borde del botón del mismo color */
+    margin-top: 1rem; /* Espacio encima del botón */
+}
+
+.btn-primary:hover {
+    background-color: #555; /* Color del botón al pasar el ratón por encima */
+}
+
+/* Responde a la vista de pantallas pequeñas */
+@media (max-width: 767px) {
+    .card {
+        margin-bottom: 1rem;
+    }
+    .card-body {
+        padding: 0.5rem;
+    }
+}
+
