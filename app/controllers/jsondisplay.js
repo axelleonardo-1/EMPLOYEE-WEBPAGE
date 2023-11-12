@@ -7,7 +7,6 @@ fetch('/app/data/jobLists.json')
     return response.json();
   })
   .then(data => {
-    // Aquí puedes usar tu constante 'data' que contiene los datos de tu JSON
     displayJobs(data);
   })
   .catch(error => {

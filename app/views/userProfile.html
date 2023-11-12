@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/app/views/styles/userprofile.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+    </style>
+</head>
+
+<body>
+
+    <!-- Contenedor donde se cargará navbar -->
+    <div id="navbar-container"></div>
+    <script>
+        // Cargar tu navbar al inicio del documento
+        fetch('./layouts/navbar/homenavbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error al cargar la navbar:', error));
+    </script>
+
+    <h1>Your Profile</h1>
+
+    <div class="container mt-5">
+        <form id="userProfileForm">
+            <div class="row">
+                <!-- Columna para información del usuario y avatar -->
+                <div class="col-md-4">
+                    <img id="userAvatar" alt="User Avatar" class="img-fluid rounded-circle mb-3">
+                    <div class="form-group">
+                        <label for="avatar">Choose an Avatar</label>
+                        <select class="form-control" id="avatar" name="avatar">
+                            <option value="">None</option>
+                            <option value="/app/views/assets/avatars/avatarAbstract.png">Abstract</option>
+                            <option value="/app/views/assets/avatars/avatarAnimal.png">Animal</option>
+                            <option value="/app/views/assets/avatars/avatarGeometric.png">Geometric</option>
+                            <option value="/app/views/assets/avatars/avatarLandScape.png">Landscape</option>
+                            <option value="/app/views/assets/avatars/avatarPerson.png">Person</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control mb-2" id="username" name="username" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="form-control mb-2" id="firstName" name="firstName" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control mb-2" id="lastName" name="lastName" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" class="form-control mb-2" id="location" name="location">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactNumber">Contact Number</label>
+                        <input type="text" class="form-control mb-2" id="contactNumber" name="contactNumber">
+                    </div>
+                </div>
+    
+                <!-- Columna para habilidades y educación -->
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="skills">Skills</label>
+                        <textarea class="form-control" id="skills" name="skills" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="education">Education</label>
+                        <textarea class="form-control" id="education" name="education" rows="3"></textarea>
+                    </div>
+                    
+                </div>
+    
+                <!-- Columna para experiencia laboral -->
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="workExperience">Work Experience</label>
+                        <textarea class="form-control" id="workExperience" name="workExperience" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="/app/controllers/userdisplay.js"></script>
+
+</body>
+
+<footer>
+    <div id="footer-container"></div>
+    <script>
+        // Cargar tu footer al final del documento
+        fetch('./layouts/footer/layout.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error al cargar el footer:', error));
+    </script>
+</footer>
+
+</html>

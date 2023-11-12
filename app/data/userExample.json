@@ -1,0 +1,27 @@
+    {
+    "_id": 123456673434232,
+    "username": "johndoe82",
+    "password_hash": "hashed_password_example",
+    "email": "johndoe82@example.com",
+    "profile": {
+        "avatar": "/app/views/assets/avatars/avatarGeometric.png",
+        "firstName": "John",
+        "lastName": "Doe",
+        "contactNumber": "5550123456",
+        "location": "Monterrey, México",
+        "resume": "http://example.com/path_to_resume_johndoe.pdf",
+        "skills": "Leadership, Project Management, Public Speaking",
+        "education": "Instituto Tecnológico, Ingeniero en Sistemas Computacionales, 2010-2014",
+        "workExperience": "Tech Company, Desarrollador Senior, 2015-Presente"
+    },
+    "settings": {
+        "notificationPreferences": {
+        "email": true,
+        "sms": false
+        },
+        "theme": "dark/light"
+    },
+    "createdAt": "fecha de creación ISODate",
+    "updatedAt": "fecha de última actualización ISODate"
+    
+    }

@@ -2,7 +2,7 @@
 body {
     background-color: #f4f4f4; /* Color de fondo claro para todo el sitio */
     color: #333; /* Color de texto oscuro para contraste */
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Bacasime Antique', serif;
 }
 
 /* Estilos de la tarjeta */
@@ -16,6 +16,7 @@ body {
 
 .card-img {
     width: 100%; /* El logo ocupa todo el ancho de su contenedor */
+    height: 150px;
     padding: 1rem; /* Espacio interior para evitar que el logo toque los bordes de la tarjeta */
     object-fit: contain; /* Asegura que el logo se ajuste dentro del espacio disponible */
 }

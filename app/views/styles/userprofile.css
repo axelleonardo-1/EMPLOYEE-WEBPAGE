@@ -1,0 +1,124 @@
+/* styles.css */
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+    font-family: 'Arial', sans-serif;
+}
+
+h1{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    text-align: center;
+}
+.container {
+    padding-top: 50px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    text-align: center;
+}
+
+
+/* Estilos para el formulario */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+/* Estilos para los input y textarea */
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Botón Guardar */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+/* Media queries para ajustes responsivos */
+@media (max-width: 768px) {
+    .container {
+        padding-top: 20px;
+    }
+
+    #userAvatar {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Ajusta el contenedor principal */
+.container {
+    max-width: 100%; /* Asegúrate de que el contenedor use todo el ancho */
+    padding: 0 15px; /* Ajusta el padding según sea necesario */
+}
+
+/* Ajusta las filas y las columnas */
+.row {
+    margin-left: -15px; /* Ajusta el margen izquierdo */
+    margin-right: -15px; /* Ajusta el margen derecho */
+}
+
+.col-md-4 {
+    padding: 0 15px; /* Ajusta el padding para las columnas */
+    display: flex; /* Utiliza flexbox para un mejor control de alineación */
+    flex-direction: column; /* Alinea los elementos de la columna verticalmente */
+}
+
+/* Asegura que las tarjetas ocupen todo el espacio vertical disponible */
+.form-group {
+    flex: 1; /* Las tarjetas se expandirán para ocupar el espacio disponible */
+    display: flex; /* Utiliza flexbox para los form-group */
+    flex-direction: column; /* Organiza el contenido de los form-group verticalmente */
+}
+
+/* Asegura que los textarea se expandan para usar el espacio disponible */
+textarea.form-control {
+    flex: 1; /* Los textarea se expandirán */
+    margin-bottom: 1rem; /* Añade un margen debajo de cada textarea */
+}
+
+/* Ajustes para los elementos dentro de las tarjetas */
+.card {
+    margin-bottom: 1rem; /* Espacio debajo de las tarjetas */
+    height: 100%; /* Las tarjetas usarán todo el alto disponible */
+}
+
+/* Ajustes para el botón de guardado */
+.btn-primary {
+    width: auto; /* El botón puede ajustar su ancho según su contenido */
+    align-self: center; /* Alinea el botón al centro del eje cruzado */
+}
+
+/* Ajustes para visualización en dispositivos más pequeños */
+@media (max-width: 767px) {
+    .col-md-4 {
+        padding: 0; /* Elimina el padding para dispositivos móviles */
+    }
+
+    .form-group, textarea.form-control {
+        margin-bottom: 0.5rem; /* Ajusta los márgenes en móviles */
+    }
+
+    .btn-primary {
+        width: 100%; /* El botón ocupa todo el ancho en dispositivos móviles */
+    }
+}
+
