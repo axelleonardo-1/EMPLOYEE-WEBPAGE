@@ -124,6 +124,7 @@ select.form-control option {
     color: #495057;
 }
 
+
 /* Ajustes responsivos para el select */
 @media (max-width: 767px) {
     select.form-control {

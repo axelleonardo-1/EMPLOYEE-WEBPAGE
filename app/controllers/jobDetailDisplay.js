@@ -45,10 +45,29 @@ function displayJobDetails(job) {
             <p><strong>Location:</strong> ${job.location}</p>
             <p><strong>Posted At:</strong> ${new Date(job.postedAt).toLocaleDateString()}</p>
             <p><strong>Status:</strong> ${job.status}</p>
+            <a href="/app/views/appliedJobs.html"><button class="btn btn-primary mb-2 apply-btn" data-id="${job._id}">Apply</button></a>
         </div>
     </div>
 </div>
     `;
 
     document.getElementById('job-detail-container').innerHTML = detailHTML;
+
 }
+
+
+// Sin la etiqueta a del apply no funcionaria
+// function addApplyButtonEventListener() {
+//     const applyButtons = document.querySelectorAll('.apply-btn'); // Asume que todos los botones tienen la clase 'apply-btn'
+//     applyButtons.forEach(button => {
+//         button.addEventListener('click', function() {
+//             // Asume que el HTML tiene un atributo 'data-id' para el botón de aplicar
+//             const jobId = this.getAttribute('data-id');
+//             window.open("/app/views/appliedJobs");
+//         });
+//     });
+// }
+
+
+
+

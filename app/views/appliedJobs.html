@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applied Jobs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/app/views/styles/appliedJobs.css">
+    <!-- Incluye aquí otros estilos o scripts necesarios -->
+</head>
+<body>
+
+    <div id="navbar-container"></div>
+    <script>
+        // Cargar tu navbar al inicio del documento
+        fetch('./layouts/navbar/homenavbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error al cargar la navbar:', error));
+    </script>
+
+    <div class="container mt-5" id="applied-jobs-container">
+        <!-- Aquí se inyectarán los trabajos a los que el usuario ha aplicado -->
+    </div>
+    
+    <script src="/app/controllers/appliedJobs.js"></script>
+
+</body>
+
+<footer>
+    <div id="footer-container"></div>
+    <script>
+        // Cargar tu footer al final del documento
+        fetch('./layouts/footer/layout.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error al cargar el footer:', error));
+    </script>
+</footer>
+
+</html>

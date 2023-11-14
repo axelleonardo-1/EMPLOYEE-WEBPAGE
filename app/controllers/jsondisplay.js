@@ -12,6 +12,7 @@ fetch('/app/data/jobLists.json')
   .catch(error => {
     console.log(error);
   });
+ 
 
 function createJobCard(job) {
     return `

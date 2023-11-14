@@ -67,6 +67,7 @@ for i in range(30):
     company = companies_info[company_name]
     job_collection.append({
         "_id": fake_object_id(),
+        "peopleInterested": None,
         "employerId": fake_object_id(),
         "title": random.choice(job_titles),
         "description": f"Join {company_name} as a {random.choice(job_titles)}.",

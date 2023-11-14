@@ -39,6 +39,8 @@
             </form>
         </div>
 
+        <div class="vertical-divider"></div>
+
         <!-- Columna para crear cuenta nueva -->
         <div class="col-md-6">
             <h2>Don't have an account? Create one</h2>
@@ -109,6 +111,21 @@
                         <option value="zacatecas">Zacatecas</option>
                     </select>
                 </div>
+
+                <!-- Columna para seleccionar el tipo de usuario -->
+                    <div class="form-group">
+                        <label for="userType">Type of User</label>
+                        <p class="text-muted">Select what type of user you will be using</p>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-outline-secondary active">
+                                <input type="radio" name="userType" id="userTypeUser" autocomplete="off" value="user" checked> User
+                            </label>
+                            <label class="btn btn-outline-secondary">
+                                <input type="radio" name="userType" id="userTypePublisher" autocomplete="off" value="publisher"> Publisher
+                            </label>
+                        </div>
+                </div>
+
                 
                 <!-- Añadir más campos opcionales para resume, skills, education y workExperience según sea necesario -->
                 <!-- ... -->

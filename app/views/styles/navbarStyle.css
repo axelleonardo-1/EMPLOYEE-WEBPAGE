@@ -72,6 +72,13 @@ body {
     color: white;
 }
 
+.imageLogo{
+    width: 120px;
+    height: 100px;
+}
+
+
 button[type="submit"]:hover{
     background-color: gray;
 }
+

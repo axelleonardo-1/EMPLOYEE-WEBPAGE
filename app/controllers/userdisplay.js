@@ -14,6 +14,23 @@ fetch('/app/data/userExample.json')
             document.getElementById('education').textContent = data.profile.education;
             document.getElementById('workExperience').textContent = data.profile.workExperience;
             //Falta darle value a todos los elements para al hacer save no se borre
+            
+            // Si hay un PDF en el perfil del usuario, mostrar una vista previa
+            if (data.profile.resume) {
+                // Crea un elemento iframe para la vista previa del PDF
+                const resumePreview = document.createElement('iframe');
+                resumePreview.src = data.profile.resume; // La URL del PDF
+                resumePreview.style.width = '100%'; // Ajustar al ancho del contenedor
+                resumePreview.style.height = '700px'; // Altura del iframe
+                resumePreview.setAttribute('type', 'application/pdf');
 
+                // Ubicar el iframe en el DOM
+                const resumeContainer = document.getElementById('resumeContainer'); // Asegúrate de que este ID exista en tu HTML
+                resumeContainer.innerHTML = ''; // Limpiar el contenedor si hay algo dentro
+                resumeContainer.appendChild(resumePreview);
+
+                // ocultar el campo de carga si no quieres que suban otro CV
+                document.getElementById('cvUpload').disabled = true;
+            }
         })
         .catch(error => console.error('Error loading the user data:', error));

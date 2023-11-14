@@ -107,6 +107,61 @@ textarea.form-control {
     align-self: center; /* Alinea el botón al centro del eje cruzado */
 }
 
+.form-control-file {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+    padding: 0.5rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control-file:hover {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Estilo para el botón que se genera por el navegador para el input file */
+input[type="file"]::file-selector-button {
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #0056b3;
+}
+
+.form-control-file:disabled {
+    background-color: #e9ecef; /* Un color de fondo más claro que indica que el input está desactivado */
+    opacity: 0.7; /* Hace que el input parezca semi-transparente */
+    cursor: not-allowed; /* Cambia el cursor para indicar que el elemento está deshabilitado */
+}
+
+/* Estilo para el botón que se genera por el navegador para el input file cuando está deshabilitado */
+input[type="file"]:disabled::file-selector-button {
+    background-color: #ced4da; /* Color de fondo más oscuro para el botón */
+    color: #6c757d; /* Color de texto más claro para indicar que el botón está deshabilitado */
+    cursor: not-allowed; /* Cursor de no permitido */
+}
+
+iframe {
+    border: none; /* Remover el borde por defecto del iframe */
+    width: 100%; /* Ajustar el ancho al contenedor padre */
+    height: 500px; /* Establecer una altura fija */
+    box-shadow: 0 20px 12px rgba(0, 0, 0, 0.5); /* Añadir sombra para dar profundidad */
+    border-radius: 15px; /* Bordes ligeramente redondeados */
+    overflow: hidden; /* Ocultar barras de desplazamiento si el contenido cabe en el marco */
+}
+
+
+
 /* Ajustes para visualización en dispositivos más pequeños */
 @media (max-width: 767px) {
     .col-md-4 {

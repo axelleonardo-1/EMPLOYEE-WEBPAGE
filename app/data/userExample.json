@@ -3,16 +3,18 @@
     "username": "johndoe82",
     "password_hash": "hashed_password_example",
     "email": "johndoe82@example.com",
+    "userType":"publisher",
     "profile": {
         "avatar": "/app/views/assets/avatars/avatarGeometric.png",
         "firstName": "John",
         "lastName": "Doe",
         "contactNumber": "5550123456",
         "location": "Monterrey, México",
-        "resume": "http://example.com/path_to_resume_johndoe.pdf",
+        "resume": "/app/views/assets/appImages/cvUsersProfile/cv1.pdf",
         "skills": "Leadership, Project Management, Public Speaking",
         "education": "Instituto Tecnológico, Ingeniero en Sistemas Computacionales, 2010-2014",
-        "workExperience": "Tech Company, Desarrollador Senior, 2015-Presente"
+        "workExperience": "Tech Company, Desarrollador Senior, 2015-Presente",
+        "aplications":["20231111212109979452a3f6","20231111212109adf86d5cd4","202311112121094a19e425eb"]
     },
     "settings": {
         "notificationPreferences": {
