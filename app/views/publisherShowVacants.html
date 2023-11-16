@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Applied Jobs</title>
+    <title>My Vacancies</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/app/views/styles/applyingFor.css">
+    <link rel="stylesheet" href="/app/views/styles/vacantsStyle.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
     </style>
 </head>
 <body>
 
-    <div id="navbar-container"></div>
-    <script>
-        // Cargar tu navbar al inicio del documento
-        fetch('./layouts/navbar/homenavbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-container').innerHTML = data;
-            })
-            .catch(error => console.error('Error al cargar la navbar:', error));
-    </script>
+<!-- Contenedor donde se cargará navbar -->
+<div id="navbar-container"></div>
+<script>
+    // Cargar tu navbar al inicio del documento
+    fetch('/app/views/layouts/publisherNavbar/layout.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar-container').innerHTML = data;
+        })
+        .catch(error => console.error('Error al cargar la navbar:', error));
+</script>
 
 <div class="container mt-5">
-    <h1>My Applications</h1>
+    <h1>My Vacancies</h1>
     <br>
     <div id="vacancies-container">
         <!-- Aquí se inyectarán las tarjetas de vacantes -->
@@ -38,6 +39,10 @@
                 <p>Salary Range: $53049 - $79820</p>
                 <p>Job Type: Part-Time</p>
                 <p>Location: New York</p>
+                <p>People Interested: <a href="/app/views/showApplier.html">123456673434232</a></p>
+            </div>
+            <div class="vacancy-actions">
+                <button class="btn-delete">Delete</button>
             </div>
         </div>
 
@@ -53,13 +58,17 @@
                 <p>Location: California</p>
                 <p>People Interested: None</p>
             </div>
+            <div class="vacancy-actions">
+                <button class="btn-delete">Delete</button>
+            </div>
         </div>
     </div>
 </div>
-    
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
 </body>
-
 <footer>
     <div id="footer-container"></div>
     <script>
@@ -72,5 +81,4 @@
             .catch(error => console.error('Error al cargar el footer:', error));
     </script>
 </footer>
-
 </html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarrerPulse Publisher</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/homeStyle.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+    </style>
+
+</head>
+
+<body>
+    <!-- Contenedor donde se cargará navbar -->
+    <div id="navbar-container"></div>
+    <script>
+        // Cargar tu navbar al inicio del documento
+        fetch('./layouts/publisherNavbar/layout.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error al cargar la navbar:', error));
+    </script>
+    
+    <h1>CarrerPulse</h1>
+
+    <div class="main-content">
+        <p class="company-description">
+            Welcome to the CareerPulse Publisher Dashboard, where your vision becomes an opportunity. Here at CareerPulse, we understand
+            that every vacancy is an open door to a world of possibilities. We are committed to providing you with a platform that 
+            not only highlights your job openings but also presents them in such a way that they highlight and attract top talent.
+            <br> <br>
+            By creating opportunities on our platform, you are not just filling a position; you are inviting someone to join your
+            mission and drive your vision forward. Here, every vacancy is a promise of growth, a potential for excellence, and an 
+            opportunity for both employers and employees to excel.
+            <br> <br>
+            At CareerPulse, your company becomes synonymous with career advancement and development. We facilitate the connection 
+            between your vision and the professionals who can bring it to reality. By publishing with us, you are taking the first 
+            step in building a team that shares your passion, your dedication, and your desire to succeed.
+            <br> <br>
+            We invite you to start this journey with us, to build the future and help people reach their full potential. Because at 
+            CareerPulse, we don't just fill vacancies, elevate careers, and enrich lives. Welcome to the community where great 
+            opportunities begin.
+        </p>
+        <br>
+        <a class="find-job-btn" href="./publisherNewVacant.html">OFFER NEW  JOB</a>
+    </div>
+
+    <!-- Incluye jQuery y Bootstrap si tu navbar los utiliza -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+
+<footer>
+    <div id="footer-container"></div>
+    <script>
+        // Cargar tu footer al final del documento
+        fetch('./layouts/footer/layout.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error al cargar el footer:', error));
+    </script>
+</footer>
+
+</html>

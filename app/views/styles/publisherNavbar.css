@@ -11,7 +11,6 @@
         flex-grow: 1; /* Permite que el navbar-collapse crezca */
         font-family: 'Lato', sans-serif;
         font-family: 'Playfair Display', serif;
-        border-radius: 1px solid black;
     }
 
     .navbar-nav {
@@ -33,13 +32,14 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #ffffff 0%, #999999 50%, #000000 100%);
+    background: linear-gradient(to bottom, #FF7F50 0%, #FFD700 100%);
+    color: black; /* Establecer un color de texto adecuado para la visibilidad */
     min-height: 100vh; /* Asegurarse de que el degradado cubra toda la altura */
     margin: 0; /* Remover el margen por defecto */
 }
 
 .nav-link {
-    color: #555 !important;
+    color: black !important;
     font-weight: 600;
 }
 
@@ -48,7 +48,7 @@ body {
 }
 
 .navbar-toggler {
-    border-color:#333;
+    border-color: #333;
 }
 
 

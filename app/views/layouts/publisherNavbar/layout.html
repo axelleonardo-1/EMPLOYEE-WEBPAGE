@@ -6,7 +6,7 @@
     <title>LayoutNavbar</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/app/views/styles/navbarStyle.css">
+    <link rel="stylesheet" href="/app/views/styles/publisherNavbar.css">
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Playfair+Display:wght@800&display=swap');
     </style>
@@ -16,26 +16,22 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-custom">
-  <a class="navbar-brand" href="/app/views/index.html"><img src="/app/views/assets/appImages/logo.png" class="imageLogo" /></a>
+  <a class="navbar-brand" href="/app/views/publisherHome.html"><img src="/app/views/assets/appImages/logo.png" class="imageLogo" /></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/app/views/tutorial.html ">How to make your CV <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/app/views/jobListing.html">Jobs</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/app/views/userProfile.html">Profile</a>
-      </li>
+    <ul class="navbar-nav mr-auto" style="flex-direction:row; justify-content: center; flex-grow: 1;padding-right: 80px;">
+        <li class="nav-item">
+            <a class="nav-link" href="/app/views/publisherShowVacants.html">My Vacants</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/app/views/publisherNewVacant.html">Create a new Vacant</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/app/views/publisherUpdateVacant.html">Update Vacant</a>
+        </li>
     </ul>
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
 

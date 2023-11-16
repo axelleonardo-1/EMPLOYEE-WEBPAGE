@@ -1,0 +1,45 @@
+body {
+    background-color: #f4f4f4; /* Color de fondo claro */
+}
+
+.container {
+    max-width: 800px; /* Ancho máximo del contenedor para no ocupar toda la pantalla en dispositivos grandes */
+}
+
+.card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para la tarjeta */
+    border-radius: 8px; /* Bordes redondeados */
+    
+}
+
+.card-body {
+    padding: 20px; /* Espaciado interno de la tarjeta */
+    border: 1px solid black;
+    border-radius: 8px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.card-title {
+    font-size: 24px; /* Tamaño del título */
+    color: #333; /* Color del título */
+    margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+p {
+    font-size: 16px; /* Tamaño del texto */
+    line-height: 1.5; /* Altura de línea para mejorar la legibilidad */
+    color: #666; /* Color del texto */
+    margin-bottom: 10px; /* Espacio debajo de cada párrafo */
+    
+}
+
+a {
+    color: #007bff; /* Color de los enlaces */
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+}
+
+a:hover {
+    text-decoration: underline; /* Subraya los enlaces al pasar el ratón */
+}
+
+

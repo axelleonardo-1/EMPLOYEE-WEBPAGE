@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarrerPulse Publisher - Update Vacant</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/app/views/styles/updateVacant.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+    <script>
+        fetch('./layouts/publisherNavbar/layout.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error al cargar la navbar:', error));
+    </script>
+    <br>
+    <br>
+    <h2>Update Existing Opportunity</h2>
+    <div class="container mt-5">
+        <form id="updateJobForm">
+            <div class="row">
+                <!-- Job Details Column -->
+                <div class="col-md-6">
+                    <h2>Job Details</h2>
+                    <div class="form-group">
+                        <label for="title">Job Title</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Job Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="requirements">Job Requirements</label>
+                        <textarea class="form-control" id="requirements" name="requirements" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="skills">Skills Needed</label>
+                        <textarea class="form-control" id="skills" name="skills" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="minSalary">Minimum Salary</label>
+                        <input type="number" class="form-control" id="minSalary" name="minSalary" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="maxSalary">Maximum Salary</label>
+                        <input type="number" class="form-control" id="maxSalary" name="maxSalary" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobType">Job Type</label>
+                        <input type="text" class="form-control" id="jobType" name="jobType" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" class="form-control" id="location" name="location" required>
+                    </div>
+                </div>
+
+                <!-- Company Details Column -->
+                <div class="col-md-6">
+                    <h2>Company Details</h2>
+                        <div class="form-group">
+                            <label for="companyName">Company Name</label>
+                            <input type="text" class="form-control" id="companyName" name="companyName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="companyDescription">Company Description</label>
+                            <textarea class="form-control" id="companyDescription" name="companyDescription" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="companyLogo">Company Logo URL</label>
+                            <input type="text" class="form-control" id="companyLogo" name="companyLogo">
+                        </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-success">Save Changes</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Include jQuery and Bootstrap if your navbar uses them -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+
+<footer>
+    <div id="footer-container"></div>
+    <script>
+        fetch('./layouts/footer/layout.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error al cargar el footer:', error));
+    </script>
+</footer>
+
+</html>
