@@ -10,14 +10,32 @@
     <!-- Contenedor donde se cargará navbar -->
     <div id="navbar-container"></div>
     <script>
-        // Cargar tu navbar al inicio del documento
+        // Cargar la navbar y luego agregar el controlador de eventos al enlace de perfil
         fetch('./homenavbarLayout.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-container').innerHTML = data;
-            })
-            .catch(error => console.error('Error al cargar la navbar:', error));
-    </script>
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar-container').innerHTML = data;
+    
+            // Después de que la navbar se haya cargado e inyectado en el DOM, agrega el controlador de eventos
+            const profileLink = document.getElementById('profileLink');
+            if (profileLink) {
+                profileLink.addEventListener('click', (event) => {
+                    event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+    
+                    // Comprobar si hay un usuario en sessionStorage
+                    const user = sessionStorage.getItem('user');
+    
+                    // Si hay un usuario, navega a userProfile.html, si no, a userLogin.html
+                    if (user) {
+                        window.location.href = './userProfile.html';
+                    } else {
+                        window.location.href = './userLogin.html';
+                    }
+                });
+            }
+        })
+        .catch(error => console.error('Error al cargar la navbar:', error));
+        </script>
 
     <div class="container" id="job-detail-container">
         <!-- Los detalles del trabajo se cargarán aquí -->
