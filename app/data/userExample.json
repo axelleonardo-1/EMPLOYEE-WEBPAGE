@@ -16,13 +16,6 @@
         "workExperience": "Tech Company, Desarrollador Senior, 2015-Presente",
         "aplications":["20231111212109979452a3f6","20231111212109adf86d5cd4","202311112121094a19e425eb"]
     },
-    "settings": {
-        "notificationPreferences": {
-        "email": true,
-        "sms": false
-        },
-        "theme": "dark/light"
-    },
     "createdAt": "fecha de creación ISODate",
     "updatedAt": "fecha de última actualización ISODate"
     
