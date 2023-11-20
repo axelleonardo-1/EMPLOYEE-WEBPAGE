@@ -18,6 +18,7 @@ let db = mongoose.connection;
 // Middleware for global router
 app.use(router);
 
+
 // Express setting for static files at staticPath
 const staticPath = path.join(__dirname, 'app', 'views');
 app.use(express.static(staticPath));

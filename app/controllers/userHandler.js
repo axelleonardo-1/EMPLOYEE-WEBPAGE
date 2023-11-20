@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', function() {
     
     // Escuchar el evento submit del formulario de inicio de sesión
@@ -30,6 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         };
     
+        console.log('Registration Data:', formData);
+
         // Envía formData al servidor
         fetch('/register', {
             method: 'POST',
@@ -43,14 +47,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.success) {
                 // Guarda el usuario en sessionStorage y redirige a su perfil
                 sessionStorage.setItem('user', JSON.stringify(data.user));
-                window.location.href = './userProfile.html';
+                window.location.href = './profile';
             } else {
                 console.error('Error al registrar:', data.message);
             }
             })
             .catch(error => console.error('Error al registrar:', error));
         });
-        console.log('Registration Data:', formData);
+        
     });
 
 

@@ -1,11 +1,16 @@
 //Imports
 const express = require('express');
 const path = require('path');
-
+const userRouter = require('../routes/user');
 
 //Router
 const router = express.Router();
 
+// Agrega middleware para analizar solicitudes con cuerpo en formato JSON
+router.use(express.json());
+
+
+router.use('/user', userRouter);
 
 //root-index.html
 router.get("/",(req,res) => res.sendFile(path.resolve(__dirname + "/../views/index.html")));
