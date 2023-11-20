@@ -3,14 +3,20 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 
+const router = require('./app/controllers/router');
+
 // Configura Express
 const app = express();
 app.use(cors());
+
 // Agrega middleware para analizar solicitudes con cuerpo en formato JSON
 app.use(express.json());
 
 let mongoConnection = "mongodb+srv://admin:admin@cluster0.dwmdwry.mongodb.net/Cluster0";
 let db = mongoose.connection;
+
+// Middleware for global router
+app.use(router);
 
 // Express setting for static files at staticPath
 const staticPath = path.join(__dirname, 'app', 'views');

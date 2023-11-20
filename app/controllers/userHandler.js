@@ -11,33 +11,46 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Password:', password);
     });
 
+    // ---------------------------------------------------------
     // Escuchar el evento submit del formulario de registro
     document.getElementById('registerForm').addEventListener('submit', function(event) {
         event.preventDefault();
-        const firstName = document.getElementById('firstName').value;
-        const lastName = document.getElementById('lastName').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('passwordLogin').value;
-        const contactNumber = document.getElementById('contactNumber').value;
-        const location = document.getElementById('location').value;
-        const userType = document.querySelector('input[name="userType"]:checked').value;
-        
-        // Objeto con los valores del formulario de registro
-        const registrationData = {
-            firstName,
-            lastName,
-            email,
-            password,
-            contactNumber,
-            location,
-            userType
-        };
-
-        // Aquí podrías enviar registrationData a tu servidor
-        console.log('Registration Data:', registrationData);
-    });
-});
-
-function createUser(){
     
-}
+        const formData = {
+            username: document.getElementById('email').value.split('@')[0], // Ejemplo de generación de username
+            password_hash: document.getElementById('passwordLogin').value, //enviar la contraseña de forma segura y hashearla en el servidor
+            email: document.getElementById('email').value,
+            userType: document.querySelector('input[name="userType"]:checked').value,
+            profile: {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                contactNumber: document.getElementById('contactNumber').value || null,
+                location: document.getElementById('location').value || null,
+                // Los campos como avatar, resume, skills, education, workExperience y aplications inicialmente estarán vacíos o nulos
+            }
+        };
+    
+        // Envía formData al servidor
+        fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Guarda el usuario en sessionStorage y redirige a su perfil
+                sessionStorage.setItem('user', JSON.stringify(data.user));
+                window.location.href = './userProfile.html';
+            } else {
+                console.error('Error al registrar:', data.message);
+            }
+            })
+            .catch(error => console.error('Error al registrar:', error));
+        });
+        console.log('Registration Data:', formData);
+    });
+
+
