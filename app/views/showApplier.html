@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publisher Profile</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/app/views/styles/publisherProfile.css">
+    <link rel="stylesheet" href="./styles/publisherProfile.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
     </style>
@@ -16,7 +16,7 @@
 <!-- Navbar -->
 <div id="navbar-container"></div>
 <script>
-    fetch('/app/views/layouts/publisherNavbar/layout.html')
+    fetch('./layoutPublisher.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('navbar-container').innerHTML = data;
@@ -33,7 +33,7 @@
             <p><strong>Name:</strong> John Doe</p>
             <p><strong>Contact Number:</strong> 5550123456</p>
             <p><strong>Location:</strong> Monterrey, México</p>
-            <p><strong>Resume:</strong> <a href="/app/views/assets/appImages/cvUsersProfile/cv1.pdf" target="_blank">View CV</a></p>
+            <p><strong>Resume:</strong> <a href="./assets/appImages/cvUsersProfile/cv1.pdf" target="_blank">View CV</a></p>
             <p><strong>Skills:</strong> Leadership, Project Management, Public Speaking</p>
             <p><strong>Education:</strong> Instituto Tecnológico, Ingeniero en Sistemas Computacionales, 2010-2014</p>
             <p><strong>Work Experience:</strong> Tech Company, Desarrollador Senior, 2015-Presente</p>
@@ -44,7 +44,7 @@
 <!-- Footer -->
 <div id="footer-container"></div>
 <script>
-    fetch('./layouts/footer/layout.html')
+    fetch('./footerLayout.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer-container').innerHTML = data;

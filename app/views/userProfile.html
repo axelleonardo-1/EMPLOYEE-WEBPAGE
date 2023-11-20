@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/app/views/styles/userprofile.css">
+    <link rel="stylesheet" href="./styles/userprofile.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
     </style>
@@ -17,7 +17,7 @@
     <div id="navbar-container"></div>
     <script>
         // Cargar tu navbar al inicio del documento
-        fetch('./layouts/navbar/homenavbar.html')
+        fetch('./homenavbarLayout.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('navbar-container').innerHTML = data;
@@ -37,11 +37,11 @@
                         <label for="avatar">Choose an Avatar</label>
                         <select class="form-control" id="avatar" name="avatar">
                             <option value="">None</option>
-                            <option value="/app/views/assets/avatars/avatarAbstract.png">Abstract</option>
-                            <option value="/app/views/assets/avatars/avatarAnimal.png">Animal</option>
-                            <option value="/app/views/assets/avatars/avatarGeometric.png">Geometric</option>
-                            <option value="/app/views/assets/avatars/avatarLandScape.png">Landscape</option>
-                            <option value="/app/views/assets/avatars/avatarPerson.png">Person</option>
+                            <option value="./assets/avatars/avatarAbstract.png">Abstract</option>
+                            <option value="./assets/avatars/avatarAnimal.png">Animal</option>
+                            <option value="./assets/avatars/avatarGeometric.png">Geometric</option>
+                            <option value="./assets/avatars/avatarLandScape.png">Landscape</option>
+                            <option value="./assets/avatars/avatarPerson.png">Person</option>
                         </select>
                     </div>
 
@@ -90,7 +90,7 @@
                 </div>
                 
                 <div class="text-center col-md-12" style=" color:steelblue; text-decoration:underline; font-size: 30px;">
-                    <a href="/app/views/appliedJobs.html">Applied Jobs</a>
+                    <a href="./appliedJobs.html">Applied Jobs</a>
                 </div>
                 
             </div>
@@ -117,7 +117,7 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-<script src="/app/controllers/userdisplay.js"></script>
+<script src="/controllers/userdisplay.js"></script>
 
 </body>
 
@@ -125,7 +125,7 @@
     <div id="footer-container"></div>
     <script>
         // Cargar tu footer al final del documento
-        fetch('./layouts/footer/layout.html')
+        fetch('./footerLayout.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-container').innerHTML = data;

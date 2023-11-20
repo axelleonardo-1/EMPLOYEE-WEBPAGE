@@ -11,7 +11,7 @@
     <div id="navbar-container"></div>
     <script>
         // Cargar tu navbar al inicio del documento
-        fetch('./layouts/navbar/homenavbar.html')
+        fetch('./homenavbarLayout.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('navbar-container').innerHTML = data;
@@ -24,14 +24,14 @@
     </div>
     
     <!-- Scripts necesarios aquí -->
-    <script src="/app/controllers/jobDetailDisplay.js"></script>
+    <script src="../controllers/jobDetailDisplay.js"></script>
 </body>
 
 <footer>
     <div id="footer-container"></div>
     <script>
         // Cargar tu footer al final del documento
-        fetch('./layouts/footer/layout.html')
+        fetch('./footerLayout.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-container').innerHTML = data;

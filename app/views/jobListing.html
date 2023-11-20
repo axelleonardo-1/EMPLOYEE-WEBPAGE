@@ -17,7 +17,7 @@
     <div id="navbar-container"></div>
     <script>
         // Cargar tu navbar al inicio del documento
-        fetch('./layouts/navbar/jobsnavbar.html')
+        fetch('./jobsnavbarLayout.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('navbar-container').innerHTML = data;
@@ -28,14 +28,13 @@
 
     <div class="container mt-5" id="jobs-container">
         <!-- Las tarjetas de trabajo se inyectarán aquí mediante JavaScript (jsondisplays.js) -->
-
     </div>
 
 
     <!-- Bootstrap JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-    <script src="/app/controllers/jsondisplay.js"></script>
+    <script src="/controllers/jsondisplay.js"></script>
 
 
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register User</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/app/views/styles/userloginStyle.css">
+    <link rel="stylesheet" href="./styles/userloginStyle.css">
 </head>
 <body>
 
@@ -13,7 +13,7 @@
 <div id="navbar-container"></div>
 <script>
     // Cargar tu navbar al inicio del documento
-    fetch('./layouts/navbar/homenavbar.html')
+    fetch('./homenavbarLayout.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('navbar-container').innerHTML = data;
@@ -143,7 +143,7 @@
     <div id="footer-container"></div>
     <script>
         // Cargar tu footer al final del documento
-        fetch('./layouts/footer/layout.html')
+        fetch('./footerLayout.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-container').innerHTML = data;

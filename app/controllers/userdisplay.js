@@ -1,4 +1,4 @@
-fetch('/app/data/userExample.json')
+fetch('/data/userExample.json')
         .then(response => response.json())
         .then(data => {
             // Asumiendo que 'data' es el objeto que contiene la información del usuario

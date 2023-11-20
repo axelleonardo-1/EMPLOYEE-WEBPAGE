@@ -1,5 +1,5 @@
 
-fetch('/app/data/jobLists.json')
+fetch('/data/jobLists.json')
   .then(response => {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -16,7 +16,7 @@ fetch('/app/data/jobLists.json')
 
 function createJobCard(job) {
     return `
-    <link rel="stylesheet" href="/app/views/styles/joblistStyle.css">
+    <link rel="stylesheet" href="/styles/joblistStyle.css">
     <div class="col-md-6 mb-4">
     <div class="card">
         <!-- Fila para el logo y la información -->
@@ -70,15 +70,10 @@ function displayJobs(jobs) {
 
 // jsondisplay.js
 window.onload = function() {
-    fetch('/app/data/jobLists.json')
+    fetch('/data/jobLists.json')
         .then(response => response.json())
         .then(data => {
             displayJobs(data);
         })
         .catch(error => console.error('Error loading the job listings:', error));
 };
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    displayJobs(jobsData);
-  });

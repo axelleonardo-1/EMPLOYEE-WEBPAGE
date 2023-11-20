@@ -10,7 +10,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
     </style>
 
-    <link rel="stylesheet" href="/app/views/styles/newVacant.css">
+    <link rel="stylesheet" href="./styles/newVacant.css">
 
 </head>
 
@@ -19,7 +19,7 @@
     <div id="navbar-container"></div>
     <script>
         // Cargar tu navbar al inicio del documento
-        fetch('/app/views/layouts/publisherNavbar/layout.html')
+        fetch('./layoutPublisher.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('navbar-container').innerHTML = data;
@@ -101,7 +101,7 @@
     <div id="footer-container"></div>
     <script>
         // Cargar tu footer al final del documento
-        fetch('./layouts/footer/layout.html')
+        fetch('./footerLayout.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-container').innerHTML = data;

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Applied Jobs</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/app/views/styles/applyingFor.css">
+    <link rel="stylesheet" href="./styles/applyingFor.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
     </style>
@@ -15,7 +15,7 @@
     <div id="navbar-container"></div>
     <script>
         // Cargar tu navbar al inicio del documento
-        fetch('./layouts/navbar/homenavbar.html')
+        fetch('./homenavbarLayout.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('navbar-container').innerHTML = data;
@@ -64,7 +64,7 @@
     <div id="footer-container"></div>
     <script>
         // Cargar tu footer al final del documento
-        fetch('./layouts/footer/layout.html')
+        fetch('./footerLayout.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-container').innerHTML = data;

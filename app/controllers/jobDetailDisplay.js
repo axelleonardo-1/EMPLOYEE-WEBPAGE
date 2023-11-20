@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const jobId = params.get('jobId');
 
     // Carga los datos de los trabajos
-    fetch(`/app/data/jobLists.json`)
+    fetch(`/data/jobLists.json`)
         .then(response => response.json())
         .then(jobs => {
             // Encuentra el trabajo específico por jobId
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function displayJobDetails(job) {
     // Construye el HTML con todos los detalles del trabajo
     const detailHTML = `
-    <link rel="stylesheet" href="/app/views/styles/jobdetail.css">
+    <link rel="stylesheet" href="./styles/jobdetail.css">
 
     <div class="container mt-5" id="job-detail-container">
     <div class="row">
@@ -45,7 +45,7 @@ function displayJobDetails(job) {
             <p><strong>Location:</strong> ${job.location}</p>
             <p><strong>Posted At:</strong> ${new Date(job.postedAt).toLocaleDateString()}</p>
             <p><strong>Status:</strong> ${job.status}</p>
-            <a href="/app/views/appliedJobs.html"><button class="btn btn-primary mb-2 apply-btn" data-id="${job._id}">Apply</button></a>
+            <a href="./appliedJobs.html"><button class="btn btn-primary mb-2 apply-btn" data-id="${job._id}">Apply</button></a>
         </div>
     </div>
 </div>

@@ -13,32 +13,32 @@ companies_info = {
     "Oracle": {
         "name": "Oracle",
         "description": "American multinational computer technology corporation",
-        "logo": "/app/views/assets/BusinessLogos/oracle.png"
+        "logo": "./assets/BusinessLogos/oracle.png"
     },
     "Amazon": {
         "name": "Amazon",
         "description": "Multinational technology company focusing on e-commerce, cloud computing, and AI",
-        "logo": "/app/views/assets/BusinessLogos/amazon.png"
+        "logo": "./assets/BusinessLogos/amazon.png"
     },
     "GymShark": {
         "name": "GymShark",
         "description": "Fitness apparel and accessories brand",
-        "logo": "/app/views/assets/BusinessLogos/gymshark.png"
+        "logo": "./assets/BusinessLogos/gymshark.png"
     },
     "Costco": {
         "name": "Costco",
         "description": "Multinational corporation that operates a chain of membership-only warehouse clubs",
-        "logo": "/app/views/assets/BusinessLogos/costco.png"
+        "logo": "./assets/BusinessLogos/costco.png"
     },
     "Nike": {
         "name": "Nike",
         "description": "American multinational corporation engaged in the design and manufacturing of footwear, apparel, and accessories",
-        "logo": "/app/views/assets/BusinessLogos/nike.png"
+        "logo": "./assets/BusinessLogos/nike.png"
     },
     "Toyota": {
         "name": "Toyota",
         "description": "Japanese multinational automotive manufacturer",
-        "logo": "/app/views/assets/BusinessLogos/toyota.png"
+        "logo": "./assets/BusinessLogos/toyota.png"
     }
 }
 

@@ -15,7 +15,7 @@
     <div id="navbar-container"></div>
     <script>
         // Cargar tu navbar al inicio del documento
-        fetch('./layouts/navbar/homenavbar.html')
+        fetch('./homenavbarLayout.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('navbar-container').innerHTML = data;
@@ -53,7 +53,7 @@
         <div class="col-lg-6">
             <h1 style="text-align: center;">Example of a Cv</h1>
             <br>
-            <img src="/app/views/assets/appImages/cv examples.svg" alt="Cv de ejemplo" class="img-fluid">
+            <img src="./assets/appImages/cv examples.svg" alt="Cv de ejemplo" class="img-fluid">
         </div>
     </div>
 </div>
@@ -69,7 +69,7 @@
     <div id="footer-container"></div>
     <script>
         // Cargar tu footer al final del documento
-        fetch('./layouts/footer/layout.html')
+        fetch('./footerLayout.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-container').innerHTML = data;
