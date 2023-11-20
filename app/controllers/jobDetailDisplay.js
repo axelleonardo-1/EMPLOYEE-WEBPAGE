@@ -45,7 +45,7 @@ function displayJobDetails(job) {
             <p><strong>Location:</strong> ${job.location}</p>
             <p><strong>Posted At:</strong> ${new Date(job.postedAt).toLocaleDateString()}</p>
             <p><strong>Status:</strong> ${job.status}</p>
-            <a href="./appliedJobs.html"><button class="btn btn-primary mb-2 apply-btn" data-id="${job._id}">Apply</button></a>
+            <a href="./jobsApplied"><button class="btn btn-primary mb-2 apply-btn" data-id="${job._id}">Apply</button></a>
         </div>
     </div>
 </div>

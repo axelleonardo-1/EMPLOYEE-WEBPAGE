@@ -15,14 +15,32 @@
 
     <!-- Contenedor donde se cargará navbar -->
     <div id="navbar-container"></div>
-    <script>
-        // Cargar tu navbar al inicio del documento
-        fetch('./homenavbarLayout.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-container').innerHTML = data;
-            })
-            .catch(error => console.error('Error al cargar la navbar:', error));
+<script>
+    // Cargar la navbar y luego agregar el controlador de eventos al enlace de perfil
+    fetch('./homenavbarLayout.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('navbar-container').innerHTML = data;
+
+        // Después de que la navbar se haya cargado e inyectado en el DOM, agrega el controlador de eventos
+        const profileLink = document.getElementById('profileLink');
+        if (profileLink) {
+            profileLink.addEventListener('click', (event) => {
+                event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+
+                // Comprobar si hay un usuario en sessionStorage
+                const user = sessionStorage.getItem('user');
+
+                // Si hay un usuario, navega a userProfile.html, si no, a userLogin.html
+                if (user) {
+                    window.location.href = './profile';
+                } else {
+                    window.location.href = './login';
+                }
+            });
+        }
+    })
+    .catch(error => console.error('Error al cargar la navbar:', error));
     </script>
 
     <h1>Your Profile</h1>
@@ -90,7 +108,7 @@
                 </div>
                 
                 <div class="text-center col-md-12" style=" color:steelblue; text-decoration:underline; font-size: 30px;">
-                    <a href="./appliedJobs.html">Applied Jobs</a>
+                    <a href="./jobsApplied">Applied Jobs</a>
                 </div>
                 
             </div>

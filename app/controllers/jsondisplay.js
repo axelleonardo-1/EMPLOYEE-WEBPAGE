@@ -63,7 +63,7 @@ function displayJobs(jobs) {
             const jobId = this.getAttribute('data-id');
             // Aquí podrías redireccionar a la nueva página HTML con los detalles del trabajo o abrir un modal, etc.
             // Por ejemplo:
-            window.location.href = `./job-detail.html?jobId=${jobId}`;
+            window.location.href = `./vacancyDetails?jobId=${jobId}`;
         });
     });
 }
