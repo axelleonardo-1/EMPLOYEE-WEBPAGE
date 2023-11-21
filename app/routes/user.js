@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 const router = require("express").Router();
 
 const UserSchema = new mongoose.Schema({
@@ -22,19 +23,17 @@ const UserSchema = new mongoose.Schema({
     required: true
   },
   profile: {
-    avatar: String, // Si quieres que sea obligatorio, agrega `required: true`
-    firstName: String,
-    lastName: String,
-    contactNumber: String,
-    location: String,
-    resume: String,
-    skills: {
-      type: String, // Puedes cambiar esto a un array si almacenas las habilidades individualmente
-    },
-    education: String, // Puedes cambiar esto a un array si almacenas los datos educativos individualmente
-    workExperience: String, // Puedes cambiar esto a un array si almacenas la experiencia laboral individualmente
+    avatar: {type:String, default:"./assets/avatars/avatarGeometric.png"}, // Si quieres que sea obligatorio, agrega `required: true`
+    firstName: {type:String, default:null},
+    lastName: {type:String, default:null},
+    contactNumber: {type:String, default:null},
+    location: {type:String, default:null},
+    resume: {type:String, default:null},
+    skills: {type:String, default:null},
+    education: {type:String, default:null}, // Puedes cambiar esto a un array si almacenas los datos educativos individualmente
+    workExperience: {type:String, default:null}, // Puedes cambiar esto a un array si almacenas la experiencia laboral individualmente
     aplications: [{
-      type: String, // o String si el ID es una cadena
+      type: String, default:null, // o String si el ID es una cadena
     }]
   },
   createdAt: {
@@ -53,7 +52,9 @@ const User = mongoose.model('User', UserSchema);
 
 router.post('/register', async (req, res) => {
     try {
-        // En un entorno de producción, asegúrate de validar y hashear la contraseña aquí
+        let pass = bcrypt.hashSync(req.body.password_hash,15)
+        req.body.password_hash = pass;
+
         const newUser = new User({
             ...req.body, // Copia todos los campos de req.body
             // Genera campos adicionales como createdAt y updatedAt
@@ -71,6 +72,44 @@ router.post('/register', async (req, res) => {
         res.status(500).json({ success: false, message: 'Error al registrar el usuario.' });
     }
 });
+
+// Get all users
+router.post('/login', async (req, res) => {
+    try {
+        const user = await User.findOne({ username: req.body.user });
+
+        if (user && bcrypt.compareSync(req.body.password, user.password_hash)) {
+            // Passwords match
+            res.json({ success: true, user: user });
+            console.log('\n----------------------contraseña correcta-----------------------');
+        } else {
+            // User not found or passwords don't match
+            res.status(401).json({ success: false, message: 'Invalid credentials' });
+        }
+    } catch (error) {
+        console.error('Error during login:', error);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+
+
+// Get a single user by username
+router.get('/users/:username', async (req, res) => {
+  try {
+      const username = req.params.username;
+      const user = await User.findOne({ username: username });
+      
+      if (user) {
+          res.json({ success: true, user: user });
+      } else {
+          res.status(404).json({ success: false, message: 'User not found.' });
+      }
+  } catch (error) {
+      console.error('Error fetching user:', error);
+      res.status(500).json({ success: false, message: 'Error fetching user.' });
+  }
+});
+
 
 
 
