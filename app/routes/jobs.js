@@ -4,13 +4,10 @@ const router = require("express").Router();
 
 const JobSchema = new mongoose.Schema(
     {
-        _id: {
-            type: String,
-            required: true
-        },
+    
         employerId: {
-            type: String,
-            required: true
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
         },
         title: {
             type: String,
@@ -20,22 +17,22 @@ const JobSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        requirements: [
-            {
-                type: String
-            }
-        ],
-        skills: [
-            {
-                type: String
-            }
-        ],
+        requirements: 
+        {
+                type: String,
+        },
+        skills:
+        {
+            type: String
+        },
         salaryRange: {
             min: {
-                type: Number
+                type: Number,
+                default: 0
             },
             max: {
-                type: Number
+                type: Number,
+                default: 0
             }
         },
         jobType: {
@@ -81,8 +78,28 @@ const JobSchema = new mongoose.Schema(
                 "active",
                 "closed"
             ],
-            required: true
+            required: true,
+            default: "active"
         }
     });
 
 const Job = mongoose.model('Job',JobSchema);
+
+router.post('/publishVacant', async(req,res) => {
+    try {
+        const newJob = new Job({
+            ...req.body, // Copia todos los campos de req.body
+        });
+
+        // Guarda el nuevo usuario en la base de datos
+        const savedJob = await newJob.save();
+
+        // Enviar la respuesta al cliente
+        res.json({ success: true, job: savedJob });
+    } catch (error) {
+        console.error('Error al registrar el usuario:', error);
+        res.status(500).json({ success: false, message: 'Error al registrar el usuario.' });
+    }
+});
+
+module.exports = router;

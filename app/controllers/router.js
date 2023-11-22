@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 const userRouter = require('../routes/user');
+const jobsRouter = require('../routes/jobs');
 
 //Router
 const router = express.Router();
@@ -11,6 +12,7 @@ router.use(express.json());
 
 
 router.use('/user', userRouter);
+router.use('/jobs', jobsRouter);
 
 //root-index.html
 router.get("/",(req,res) => res.sendFile(path.resolve(__dirname + "/../views/index.html")));

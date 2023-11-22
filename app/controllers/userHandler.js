@@ -24,7 +24,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.success) {
                 // The user is logged in successfully, proceed further
                 sessionStorage.setItem('user', JSON.stringify(data.user));
+                if(data.user.userType == 'publisher'){
+                    window.location.href = './publisher';
+                }
+                else{
                 window.location.href = './profile';
+                }
             } else {
                 // Login failed, handle error
                 console.error('Login failed:', data.message);
@@ -68,14 +73,79 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.success) {
                 // Guarda el usuario en sessionStorage y redirige a su perfil
                 sessionStorage.setItem('user', JSON.stringify(data.user));
+                // REALIZAR COMPROBACION PARA SABER QUE VENTANA ABRIR EN BASE AL TIPO DE USUARIO
+                if(data.user.userType == 'publisher'){
+                    window.location.href = './publisher';
+                }
+                else{
                 window.location.href = './profile';
+                }
             } else {
                 console.error('Error al registrar:', data.message);
             }
             })
             .catch(error => console.error('Error al registrar:', error));
         });
+
+    //--------------------------------------------------------------------------
+    // Escuchar el evento del userProfileForm
+    // NO FUNCIONA AUN
+    document.getElementById('userProfileForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const updatedUserData = {
+            avatar: document.getElementById('avatar').value,
+            username: document.getElementById('username').value,
+            firstName: document.getElementById('firstName').value,
+            lastName: document.getElementById('lastName').value,
+            location: document.getElementById('location').value,
+            contactNumber: document.getElementById('contactNumber').value,
+            skills: document.getElementById('skills').value,
+            education: document.getElementById('education').value,
+            workExperience: document.getElementById('workExperience').value,
+            // Additional fields can be added here if needed
+        };
+    
+        console.log(updatedUserData);
+
+        // Retrieve the user ID from sessionStorage or another source
+        const usuario = sessionStorage.getItem('user');
+        const data = JSON.parse(usuario);
+        const userId = data._id;
         
+        console.log(userId);
+
+        fetch(`http://localhost:3000/user/updateUserProfile/${userId}`, { // Replace with your API endpoint
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedUserData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                // Update was successful, you can redirect or inform the user
+                console.log('User profile updated:', data);
+                window.location.href = './profile';
+            } else {
+                // Handle the error from the server
+                console.error('Failed to update user profile:', data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error during the update process:', error);
+        });
+
     });
+
+});
+
+        
 
 

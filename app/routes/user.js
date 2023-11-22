@@ -32,9 +32,10 @@ const UserSchema = new mongoose.Schema({
     skills: {type:String, default:null},
     education: {type:String, default:null}, // Puedes cambiar esto a un array si almacenas los datos educativos individualmente
     workExperience: {type:String, default:null}, // Puedes cambiar esto a un array si almacenas la experiencia laboral individualmente
-    aplications: [{
-      type: String, default:null, // o String si el ID es una cadena
-    }]
+    applications: [{
+      id: {type:String, default:null },
+      status: { type: String, enum: ['open', 'closed'], default: null }
+    }]      
   },
   createdAt: {
     type: Date,
@@ -49,7 +50,7 @@ const UserSchema = new mongoose.Schema({
 // Crea el modelo de usuarios
 const User = mongoose.model('User', UserSchema);
 
-
+// register new user
 router.post('/register', async (req, res) => {
     try {
         let pass = bcrypt.hashSync(req.body.password_hash,15)
@@ -73,7 +74,7 @@ router.post('/register', async (req, res) => {
     }
 });
 
-// Get all users
+// Sing in from all users
 router.post('/login', async (req, res) => {
     try {
         const user = await User.findOne({ username: req.body.user });
@@ -92,24 +93,30 @@ router.post('/login', async (req, res) => {
     }
 });
 
-
-// Get a single user by username
-router.get('/users/:username', async (req, res) => {
+//Por id especifico
+router.put('/updateUserProfile/:userId', async (req, res) => {
   try {
-      const username = req.params.username;
-      const user = await User.findOne({ username: username });
-      
-      if (user) {
-          res.json({ success: true, user: user });
+      const userId = req.params.userId;
+      const updatedData = req.body;
+
+      console.log(userId);
+      console.log(updatedData);
+      // Find the user by ID and update their profile
+      const updatedUser = await User.findByIdAndUpdate(userId, {
+          $set: updatedData
+      }, { new: true }); // { new: true } to return the updated document
+
+      console.log(updatedUser);
+      if (updatedUser) {
+          res.json({ success: true, user: updatedUser });
       } else {
-          res.status(404).json({ success: false, message: 'User not found.' });
+          res.status(404).json({ success: false, message: 'User not found' });
       }
   } catch (error) {
-      console.error('Error fetching user:', error);
-      res.status(500).json({ success: false, message: 'Error fetching user.' });
+      console.error('Error updating user profile:', error);
+      res.status(500).json({ success: false, message: 'Error updating user profile' });
   }
 });
-
 
 
 
