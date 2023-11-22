@@ -60,19 +60,32 @@ requirements_list = [
     "Experience with CRM", "Proficiency in MS Office", "Understanding of cloud services"
 ]
 
+# employersId for publishers availables
+publishersUsers = [
+    "655d788398514eaf95faa3dd", "655d78c298514eaf95faa3df","655d791a98514eaf95faa3e2","655d797298514eaf95faa3e4"
+]
+
 # Crear colección de trabajos
 job_collection = []
 for i in range(30):
+    sample_list = random.sample(publishersUsers,1)
+    sample_string = sample_list[0]
+
+    req = random.sample(requirements_list,2)
+    reqString = req[0]+" and "+req[1]
+
+    sk = random.sample(skills_list, 2)
+    skString = sk[0]+" and "+sk[1]
+
     company_name = random.choice(list(companies_info.keys()))
     company = companies_info[company_name]
     job_collection.append({
-        "_id": fake_object_id(),
         "peopleInterested": None,
-        "employerId": fake_object_id(),
+        "employerId": sample_string,
         "title": random.choice(job_titles),
         "description": f"Join {company_name} as a {random.choice(job_titles)}.",
-        "requirements": random.sample(requirements_list, 2),
-        "skills": random.sample(skills_list, 2),
+        "requirements": reqString,
+        "skills": skString,
         "salaryRange": {
             "min": random.randint(50000, 70000),
             "max": random.randint(70001, 120000)

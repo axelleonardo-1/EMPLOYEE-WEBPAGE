@@ -6,7 +6,7 @@ const JobSchema = new mongoose.Schema(
     {
     
         employerId: {
-            type: mongoose.Schema.Types.ObjectId,
+            type: String,
             required: true,
         },
         title: {
@@ -101,5 +101,54 @@ router.post('/publishVacant', async(req,res) => {
         res.status(500).json({ success: false, message: 'Error al registrar el usuario.' });
     }
 });
+
+// mostrar vacantes
+router.get('/vacancies', async (req, res) => {
+    try {
+        // Get the publisherId from query parameters instead of body
+        const publisherId = req.query.publisherId;
+        const jobs = await Job.find({ employerId: publisherId });
+
+        res.json(jobs); // Send the jobs back in the response
+        console.log("Entro en el fetch");
+        console.log("id recibido");
+        console.log(publisherId);
+        console.log(jobs);
+
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Error fetching jobs', error: error.message });
+    }
+});
+
+// get all jobs for show Jobs
+router.get('/allJobs', async (req, res) => {
+    try {
+        const jobs = await Job.find({});
+        res.json(jobs);
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Error fetching jobs', error: error.message });
+    }
+});
+
+// to show job details of a specific job
+router.get('/details/:jobId', async (req, res) => {
+    try {
+        const jobId = req.params.jobId;
+        const job = await Job.findById(jobId);
+
+        console.log('id recibido');
+        console.log(jobId);
+        console.log(job);
+
+        if (!job) {
+            return res.status(404).json({ success: false, message: 'Job not found' });
+        }
+
+        res.json(job);
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Error fetching job', error: error.message });
+    }
+});
+
 
 module.exports = router;
