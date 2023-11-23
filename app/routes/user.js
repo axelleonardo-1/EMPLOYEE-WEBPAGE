@@ -30,8 +30,8 @@ const UserSchema = new mongoose.Schema({
     location: {type:String, default:null},
     resume: {type:String, default:null},
     skills: {type:String, default:null},
-    education: {type:String, default:null}, // Puedes cambiar esto a un array si almacenas los datos educativos individualmente
-    workExperience: {type:String, default:null}, // Puedes cambiar esto a un array si almacenas la experiencia laboral individualmente
+    education: {type:String, default:null},
+    workExperience: {type:String, default:null}, 
     applications: [{
       id: {type:String, default:null },
       status: { type: String, enum: ['open', 'closed'], default: null }
@@ -93,30 +93,28 @@ router.post('/login', async (req, res) => {
     }
 });
 
-//Por id especifico
-router.put('/updateUserProfile/:userId', async (req, res) => {
-  try {
-      const userId = req.params.userId;
-      const updatedData = req.body;
+//actualizar
+  router.put('/updateProfile/:id', async (req, res) => {
+    try {
+        const userId = req.params.id;
 
-      console.log(userId);
-      console.log(updatedData);
-      // Find the user by ID and update their profile
-      const updatedUser = await User.findByIdAndUpdate(userId, {
-          $set: updatedData
-      }, { new: true }); // { new: true } to return the updated document
+        console.log("entro al fetch")
+        const updatedData = req.body;
+        console.log(userId);
+        console.log(updatedData);
 
-      console.log(updatedUser);
-      if (updatedUser) {
-          res.json({ success: true, user: updatedUser });
-      } else {
-          res.status(404).json({ success: false, message: 'User not found' });
-      }
-  } catch (error) {
-      console.error('Error updating user profile:', error);
-      res.status(500).json({ success: false, message: 'Error updating user profile' });
-  }
-});
+        // Find the user by ID and update their profile
+        User.findByIdAndUpdate(userId, updatedData,{new: true}).then((doc) =>{
+          console.log("Usuario Actualizado");
+          console.log(doc),
+          res.json(doc);
+        }).catch((err) => console.log(err));
+
+    } catch (error) {
+        console.error('Error updating user profile:', error);
+        res.status(500).json({ success: false, message: 'Error updating user profile' });
+    }
+  });
 
 
 
