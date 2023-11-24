@@ -88,7 +88,7 @@ function displayJobs(jobs) {
         const jobId = this.getAttribute('data-id');
         const user = sessionStorage.getItem('user');
         if (!user) {
-            alert('Regristra un usuario priemero');
+            alert('Registra un usuario primero');
             window.location.href = "./login";
             return;
         }
