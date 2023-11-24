@@ -2,6 +2,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Escuchar el evento submit del formulario de inicio de sesión
     document.getElementById('loginForm').addEventListener('submit', function(event) {
+
+        document.getElementById('cargando').style.display = 'block';
         event.preventDefault(); // Evita que el formulario se envíe de la manera tradicional
         const user = document.getElementById('user').value; password = document.getElementById('passwordSignIn').value;
         // Enviar de usuario y la contraseña al servidor
@@ -20,14 +22,25 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             if (data.success) {
-                // El usuario inició sesión correctamente, proceder con lo siguiente
-                sessionStorage.setItem('user', JSON.stringify(data.user));
-                if(data.user.userType == 'publisher'){
-                    window.location.href = './publisher';
-                }
-                else{
-                window.location.href = './profile';
-                }
+                document.getElementById('cargando').style.display = 'none';
+                setTimeout(() => {
+                     // El usuario inició sesión correctamente, proceder con lo siguiente
+                    sessionStorage.setItem('user', JSON.stringify(data.user));
+                    if(data.user.userType == 'publisher'){ // si es publisher
+                        window.location.href = './publisher';
+                    }
+                    else if(data.user.userType == 'user'){ // caso contrario el tipo de user es user
+                    
+                    // caso de que sea user comprueba
+                    if(sessionStorage.getItem("selectedJobId")){
+                        window.location.href = './vacancyDetails';
+                    }
+                    else{
+                        window.location.href = './profile';
+                    }
+                    }
+                }, 100);
+
             } else {
                 // Inicio de sesión fallido, manejar error
                 console.error('Login failed:', data.message);
@@ -75,7 +88,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     window.location.href = './publisher';
                 }
                 else{
-                window.location.href = './profile';
+                    if(sessionStorage.getItem("selectedJobId")==null){
+                        window.location.href="./profile"
+                    }
+                    window.location.href = './vacancyDetails';
                 }
             } else {
                 console.error('Error al registrar:', data.message);

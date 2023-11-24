@@ -167,17 +167,17 @@ router.put('/apply/:jobId', async (req, res) => {
             { new: true }
         ).then((doc) =>{
           console.log("Job con nuevo interesado");
-          console.log(doc),
-          res.json(doc);
+          console.log(doc)
+          if (doc) {
+            console.log("update exitoso");
+            // se envia la respuesta en caso de que se crean los nuevos archivos actualizados
+              res.json({ success: true, job: doc});
+          } else {
+              res.status(404).json({ success: false, message: 'Job not found' });
+          }
         });
   
-        if (doc) {
-          console.log("update exitoso");
-          // se envia la respuesta en caso de que se crean los nuevos archivos actualizados
-            res.json({ success: true, job: doc});
-        } else {
-            res.status(404).json({ success: false, message: 'Job not found' });
-        }
+        
     } catch (error) {
         console.error('Error applying to job:', error);
         res.status(500).json({ success: false, message: 'Error applying to job' });
