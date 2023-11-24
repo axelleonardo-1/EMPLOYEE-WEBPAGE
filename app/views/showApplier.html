@@ -6,8 +6,6 @@
     <title>Publisher Profile</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./styles/publisherProfile.css">
-    <link rel="stylesheet" href="./styles/loadingStyle.css">
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
     </style>
@@ -15,8 +13,8 @@
 </head>
 <body>
 
-    <div id="cargando">
-        <h1 id="mensaje">Cargando ...</h1>
+    <div id="cargando" style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.789); color: white; display: flex; justify-content: center; align-items: center; z-index: 20;">
+        <h1>Cargando ...</h1>
     </div>
 
     <script>
@@ -26,7 +24,7 @@
             }, 1000);
         }
     </script>
-
+    
 
 <!-- Navbar -->
 <div id="navbar-container"></div>

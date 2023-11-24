@@ -4,13 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('loginForm').addEventListener('submit', function(event) {
 
         document.getElementById('cargando').style.display = 'block';
-        document.getElementById('cargando').style.display = 'flex';
-        document.getElementById('cargando').style.top = 0;
-        document.getElementById('cargando').style.bottom = 0;
-        document.getElementById('cargando').style.right = 0;
-        document.getElementById('cargando').style.left = 0;
-        document.getElementById('cargando').style.right = 0;
-
         event.preventDefault(); // Evita que el formulario se envíe de la manera tradicional
         const user = document.getElementById('user').value; password = document.getElementById('passwordSignIn').value;
         // Enviar de usuario y la contraseña al servidor
@@ -30,15 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             if (data.success) {
                 document.getElementById('cargando').style.display = 'none';
-                document.getElementById('cargando').style.display = 'flex';
-                document.getElementById('cargando').style.top = 0;
-                document.getElementById('cargando').style.bottom = 0;
-                document.getElementById('cargando').style.right = 0;
-                document.getElementById('cargando').style.left = 0;
-                document.getElementById('cargando').style.right = 0;
-                
-
-
                 setTimeout(() => {
                      // El usuario inició sesión correctamente, proceder con lo siguiente
                     sessionStorage.setItem('user', JSON.stringify(data.user));
@@ -55,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         window.location.href = './profile';
                     }
                     }
-                }, 1000);
+                }, 100);
 
             } else {
                 // Inicio de sesión fallido, manejar error
@@ -69,14 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Escuchar el evento submit del formulario de registro (funcional)
     document.getElementById('registerForm').addEventListener('submit', function(event) {
-        document.getElementById('cargando').style.display = 'block';
-        document.getElementById('cargando').style.display = 'flex';
-        document.getElementById('cargando').style.top = 0;
-        document.getElementById('cargando').style.bottom = 0;
-        document.getElementById('cargando').style.right = 0;
-        document.getElementById('cargando').style.left = 0;
-        document.getElementById('cargando').style.right = 0;
-
         event.preventDefault();
         const formData = {
             username: document.getElementById('username').value,
@@ -105,35 +81,20 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                document.getElementById('cargando').style.display = 'none';
-                document.getElementById('cargando').style.display = 'flex';
-                document.getElementById('cargando').style.top = 0;
-                document.getElementById('cargando').style.bottom = 0;
-                document.getElementById('cargando').style.right = 0;
-                document.getElementById('cargando').style.left = 0;
-                document.getElementById('cargando').style.right = 0;
-                
-                setTimeout(() => {
-                     // El usuario inició sesión correctamente, proceder con lo siguiente
-                    sessionStorage.setItem('user', JSON.stringify(data.user));
-                    if(data.user.userType == 'publisher'){ // si es publisher
-                        window.location.href = './publisher';
+                // Guardar el usuario en sessionStorage y redirigir a su perfil
+                sessionStorage.setItem('user', JSON.stringify(data.user));
+                // REALIZAR COMPROBACION PARA SABER QUE VENTANA ABRIR EN BASE AL TIPO DE USUARIO
+                if(data.user.userType == 'publisher'){
+                    window.location.href = './publisher';
+                }
+                else{
+                    if(sessionStorage.getItem("selectedJobId")==null){
+                        window.location.href="./profile"
                     }
-                    else if(data.user.userType == 'user'){ // caso contrario el tipo de user es user
-                    
-                    // caso de que sea user comprueba
-                    if(sessionStorage.getItem("selectedJobId")){
-                        window.location.href = './vacancyDetails';
-                    }
-                    else{
-                        window.location.href = './profile';
-                    }
-                    }
-                }, 100);
-
+                    window.location.href = './vacancyDetails';
+                }
             } else {
-                // Inicio de sesión fallido, manejar error
-                console.error('Login failed:', data.message);
+                console.error('Error al registrar:', data.message);
             }
             })
             .catch(error => console.error('Error al registrar:', error));
