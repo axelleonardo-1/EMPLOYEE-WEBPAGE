@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             if (data){
-                console.log("Publish vacant succesfully");
-                console.log(data);
-                window.location.href = "./postVacant";
+                    console.log("Publish vacant succesfully");
+                    console.log(data);
+                    window.location.href = "./myVacants";
             }
             else{
                 console.log("Publish vacant failed");

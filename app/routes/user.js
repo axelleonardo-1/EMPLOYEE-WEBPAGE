@@ -107,7 +107,7 @@ router.post('/login', async (req, res) => {
         User.findByIdAndUpdate(userId, updatedData,{new: true}).then((doc) =>{
           console.log("Usuario Actualizado");
           console.log(doc),
-          res.json(doc);
+          res.json({success:true, user:doc});
         }).catch((err) => console.log(err));
 
     } catch (error) {

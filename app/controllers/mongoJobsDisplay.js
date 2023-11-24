@@ -65,99 +65,103 @@ function displayJobs(jobs) {
     });
 }
 
-    function fetchJobDetails(jobId) {
-        fetch(`http://localhost:3000/jobs/details/${jobId}`) // Use your server's URL
-            .then(response => {
+function fetchJobDetails(jobId) {
+    fetch(`http://localhost:3000/jobs/details/${jobId}`) // Use your server's URL
+        .then(response => {
 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(job => {
-                window.location.href = './vacancyDetails'
-                displayJobDetails(job);
-            })
-            .catch(error => {
-                console.error('Error fetching job details:', error);
-            });
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(job => {
+            window.location.href = './vacancyDetails'
+            displayJobDetails(job);
+        })
+        .catch(error => {
+            console.error('Error fetching job details:', error);
+        });
+}
+
+function applyToJob(event) {
+    event.preventDefault();
+    const jobId = this.getAttribute('data-id');
+    const user = sessionStorage.getItem('user');
+    
+    if (!user) {
+        alert('Por favor, inicia sesión primero.');
+        window.location.href = "./login";
+        return;
     }
 
-    function applyToJob(event) {
-        event.preventDefault();
-        const jobId = this.getAttribute('data-id');
-        const user = sessionStorage.getItem('user');
-        if (!user) {
-            alert('Registra un usuario primero');
-            window.location.href = "./login";
-            return;
+    const userProfile = JSON.parse(user);
+    const applications = userProfile.profile.applications;
+    const userId = userProfile._id;
+
+    // Verificar si ya se ha aplicado a este trabajo
+    const hasApplied = applications.some(application => application.id === jobId);
+    if (hasApplied) {
+        alert('Ya te has aplicado a este trabajo');
+        return;
+    }
+
+    // Si no se ha aplicado, realizar las operaciones
+    applyToUser(userId, jobId);
+    applyToJobPosting(userId, jobId);
+}
+
+function applyToUser(userId, jobId) {
+    // Actualizar las aplicaciones del usuario
+    fetch(`http://localhost:3000/user/apply/${jobId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ userId })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            console.log('Usuario actualizado con éxito:', data);
+            updateSessionStorageUser(data);
+            window.location.href = './jobsApplied';
+        } else {
+            console.error('Error al aplicar al trabajo:', data.message);
         }
-        const userProfile = JSON.parse(user);
-        const applications = userProfile.profile.applications;
-        const userId = userProfile._id;
+    })
+    .catch(error => {
+        console.error('Error durante el proceso de aplicación:', error);
+    });
+}
 
-        applications.forEach(element => {
-            if(element.id == jobId){
-                alert('Ya te haz aplicado a este trabajo');
-            }
-            else{
-                    
-            // para hacer el cambio en users
-            fetch(`http://localhost:3000/user/apply/${jobId}`, {
-                method: 'PUT', // o POST, según tu backend
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ userId })
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.success) {
-                    console.log('Applied to job successfully:', data);
-                    window.location.href = './jobsApplied';
-                } else {
-                    console.error('Failed to apply to job:', data.message);
-                }
-            })
-            .catch(error => {
-                console.error('Error during the apply process:', error);
-            });
+function applyToJobPosting(userId, jobId) {
+    // Actualizar las aplicaciones en la publicación de trabajo
+    fetch(`http://localhost:3000/jobs/apply/${userId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ jobId })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            console.log('Trabajo actualizado con éxito:', data);
+        } else {
+            console.error('Error al aplicar al trabajo:', data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error durante el proceso de aplicación:', error);
+    });
+}
 
-            // para hacer el cambio en jobs
-            fetch(`http://localhost:3000/jobs/apply/${userId}`, {
-                method: 'PUT', // o POST, según tu backend
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ jobId })
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.success) {
-                    console.log('Applied to job successfully:', data);
-                    window.location.href = './jobsApplied';
-                } else {
-                    console.error('Failed to apply to job:', data.message);
-                }
-            })
-            .catch(error => {
-                console.error('Error during the apply process:', error);
-            });
+function updateSessionStorageUser(updatedUser) {
+    // Actualizar la información del usuario en sessionStorage
+    sessionStorage.setItem('user', JSON.stringify(updatedUser));
+}
 
-            }
-            });
-        
-    }
+    
     
     function displayJobDetails(job) {
         // Use the provided job data to build the detail HTML
