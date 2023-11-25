@@ -1,3 +1,4 @@
+const { response } = require('express');
 const mongoose = require('mongoose');
 const router = require("express").Router();
 
@@ -182,6 +183,23 @@ router.put('/apply/:jobId', async (req, res) => {
         console.error('Error applying to job:', error);
         res.status(500).json({ success: false, message: 'Error applying to job' });
     }
-  });
+});
+
+router.get('/userApplications/:jobId',async(req,res) => {
+    try{
+        const JobId = req.params.jobId;
+        const searchedJob = await Job.findById(JobId);
+
+        if (!searchedJob) { // no se ha encontrado
+            return res.status(404).json({ success: false, message: 'Job not found' });
+        }
+
+        res.json(searchedJob);
+    }
+    catch (error){
+        console.error('Error applying to job:', error);
+        res.status(500).json({ success: false, message: 'Error fetching job' });
+    }
+});
 
 module.exports = router;
