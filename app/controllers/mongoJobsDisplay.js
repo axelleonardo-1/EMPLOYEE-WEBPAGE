@@ -106,8 +106,8 @@ function applyToJob(event) {
     }
 
     // Si no se ha aplicado, realizar las operaciones
-    applyToUser(userId, jobId);
     applyToJobPosting(userId, jobId);
+    applyToUser(userId, jobId);
 }
 
 function applyToUser(userId, jobId) {
@@ -136,12 +136,12 @@ function applyToUser(userId, jobId) {
 
 function applyToJobPosting(userId, jobId) {
     // Actualizar las aplicaciones en la publicación de trabajo
-    fetch(`http://localhost:3000/jobs/apply/${userId}`, {
+    fetch(`http://localhost:3000/jobs/apply/${jobId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ jobId })
+        body: JSON.stringify({ userId }) // Asegúrate de que esto coincida con lo que tu backend espera
     })
     .then(response => response.json())
     .then(data => {

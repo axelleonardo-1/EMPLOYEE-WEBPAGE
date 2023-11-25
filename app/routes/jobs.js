@@ -155,9 +155,10 @@ router.get('/details/:jobId', async (req, res) => {
 router.put('/apply/:jobId', async (req, res) => {
     try {
         console.log("Entro al fetch 2")
-        const userId = req.params.userId; 
+        // El userId debe ser obtenido del cuerpo (body) de la solicitud, no de los parámetros de la ruta
+        const userId = req.body.userId; // Cambiado de req.params.userId a req.body.userId
 
-        const jobId = req.body.jobId;
+        const jobId = req.params.jobId; // jobId está bien, ya que se pasa como un parámetro en la URL
         console.log(jobId + " jobid");
         console.log(userId + " userId");
         
@@ -172,18 +173,50 @@ router.put('/apply/:jobId', async (req, res) => {
           if (doc) {
             console.log("update exitoso");
             // se envia la respuesta en caso de que se crean los nuevos archivos actualizados
-              res.json({ success: true, job: doc});
+            res.json({ success: true, job: doc});
           } else {
               res.status(404).json({ success: false, message: 'Job not found' });
           }
         });
-  
-        
     } catch (error) {
         console.error('Error applying to job:', error);
         res.status(500).json({ success: false, message: 'Error applying to job' });
     }
 });
+
+
+// router.put('/apply/:jobId', async (req, res) => {
+//     try {
+//         console.log("Entro al fetch 2")
+//         const userId = req.params.userId; 
+
+//         const jobId = req.body.jobId;
+//         console.log(jobId + " jobid");
+//         console.log(userId + " userId");
+        
+//         // Encuentra el trabajo por su ID y actualiza la lista de personas interesadas
+//         Job.findByIdAndUpdate(
+//             jobId,
+//             { $push: { peopleInterested: userId } },
+//             { new: true }
+//         ).then((doc) =>{
+//           console.log("Job con nuevo interesado");
+//           console.log(doc)
+//           if (doc) {
+//             console.log("update exitoso");
+//             // se envia la respuesta en caso de que se crean los nuevos archivos actualizados
+//               res.json({ success: true, job: doc});
+//           } else {
+//               res.status(404).json({ success: false, message: 'Job not found' });
+//           }
+//         });
+  
+        
+//     } catch (error) {
+//         console.error('Error applying to job:', error);
+//         res.status(500).json({ success: false, message: 'Error applying to job' });
+//     }
+// });
 
 router.get('/userApplications/:jobId',async(req,res) => {
     try{
