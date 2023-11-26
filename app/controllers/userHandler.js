@@ -22,7 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => {
             if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+                alert('Usuario o contraseña incorrecta porfavor de volver a intentar');
+                window.location.href = './login';
+    
             }
             return response.json();
         })
