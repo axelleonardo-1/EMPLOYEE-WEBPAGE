@@ -184,39 +184,21 @@ router.put('/apply/:jobId', async (req, res) => {
     }
 });
 
+router.delete('/delete/:id', async (req, res) => {
+    const id = req.params.id;
 
-// router.put('/apply/:jobId', async (req, res) => {
-//     try {
-//         console.log("Entro al fetch 2")
-//         const userId = req.params.userId; 
+    try {
+        const result = await Job.findByIdAndDelete(id);
 
-//         const jobId = req.body.jobId;
-//         console.log(jobId + " jobid");
-//         console.log(userId + " userId");
-        
-//         // Encuentra el trabajo por su ID y actualiza la lista de personas interesadas
-//         Job.findByIdAndUpdate(
-//             jobId,
-//             { $push: { peopleInterested: userId } },
-//             { new: true }
-//         ).then((doc) =>{
-//           console.log("Job con nuevo interesado");
-//           console.log(doc)
-//           if (doc) {
-//             console.log("update exitoso");
-//             // se envia la respuesta en caso de que se crean los nuevos archivos actualizados
-//               res.json({ success: true, job: doc});
-//           } else {
-//               res.status(404).json({ success: false, message: 'Job not found' });
-//           }
-//         });
-  
-        
-//     } catch (error) {
-//         console.error('Error applying to job:', error);
-//         res.status(500).json({ success: false, message: 'Error applying to job' });
-//     }
-// });
+        if (result) {
+            res.json({ success: true, message: 'Registro eliminado correctamente', result: result });
+        } else {
+            res.status(404).json({ success: false, message: 'No se encontró el registro para eliminar' });
+        }
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Error al eliminar el registro', error: error.message });
+    }
+});
 
 router.get('/userApplications/:jobId',async(req,res) => {
     try{

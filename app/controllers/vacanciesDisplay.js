@@ -1,21 +1,17 @@
-// Here we need to show the vacancies applies
-
 window.addEventListener('DOMContentLoaded', (event) => {
 
-    // realizar una ruta fetch donde se extraiga todos los datos que contengan el employerId
-    // dentro de aqui enviaremos en el req solamente el id del user registrado en el sessionStorage
-    // la ruta get de user.js se encarga de extraer los datos y enviar el data
-    // en el response realizamos un mapeado de todos los resultados encontrados por ese id de nuestra base de datos
-    // implementamos las cards en el html con los valores arrojados de la ruta get
-
     const publisher = sessionStorage.getItem("user");
+    if (!publisher) {
+        console.error('No se encontró información del editor en sessionStorage.');
+        return; // Asegúrate de manejar este caso adecuadamente
+    }
+    
     const publisherData = JSON.parse(publisher);
     const publisherId = publisherData._id;
 
     fetch(`http://localhost:3000/jobs/vacancies?publisherId=${publisherId}`)
     .then(response => response.json())
     .then(jobs => {
-        // Assuming you have a function to create a card from a job object
         jobs.forEach(job => {
             createJobCard(job);
         });
@@ -43,31 +39,45 @@ window.addEventListener('DOMContentLoaded', (event) => {
             <p>Job Type: ${job.jobType}</p>
             <p>Location: ${job.location}</p>
             <p>People Interested: ${job.peopleInterested && job.peopleInterested.length > 0 ? job.peopleInterested.length : 'None'}</p>
-        `;
-    
-        const actions = document.createElement('div');
-        actions.className = 'vacancy-actions';
-        actions.innerHTML = `
-            <button class="btn-delete">Delete</button>
-            <button class="btn-delete" style="background-color: #2C5FDD;">Update</button>
+            <button class="btn-delete" data-id="${job._id}">Delete</button>
+            <button class="btn-update" data-id="${job._id}" style="background-color: #2C5FDD;">Update</button>
         `;
     
         card.appendChild(details);
-        card.appendChild(actions);
         container.appendChild(card);
     }
     
+    // Delega el evento click al contenedor de vacancies-container
+    const container = document.getElementById('vacancies-container');
+    container.addEventListener('click', function(event) {
+        // Delegación para el botón de eliminar
+        if (event.target.classList.contains('btn-delete')) {
+            event.preventDefault();
+            const jobId = event.target.getAttribute('data-id');
+            console.log('Delete button clicked with data-id:', jobId);
 
-    // //ESTABLECER LOGICA DE LOS BOTONES
-    // // Add event listeners to the buttons
-    // actions.querySelector('.btn-delete').addEventListener('click', function() {
-    //     // Add logic to handle the delete action
-    //     //BORRAR
-    // });
+            fetch(`http://localhost:3000/jobs/delete/${jobId}`, {
+                method: 'DELETE',
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Registro eliminado exitosamente: " + data.message);
+                    window.location.reload(); // o la lógica de actualización que prefieras
+                } else {
+                    alert('Error al eliminar el registro: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error en la petición fetch:', error);
+            });
+        }
 
-    // actions.querySelector('.btn-delete').addEventListener('click', function() {
-    //     // Add logic to handle the reject action
-    //     // RECHAZAR
-    // });
-
+        // Delegación para el botón de actualizar
+        if (event.target.classList.contains('btn-update')) {
+            // Aquí pondrías la lógica para manejar la actualización
+            console.log('Update button clicked with data-id:', event.target.getAttribute('data-id'));
+            // Aquí iría el código para manejar la actualización
+        }
+    });
 });

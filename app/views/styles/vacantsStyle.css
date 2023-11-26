@@ -11,18 +11,23 @@
 }
 
 .vacancy-details {
-    flex-basis: 70%;
+    flex-basis: 100%;
+    text-align: center;
+    align-items: center;
 }
 
-.vacancy-actions {
-    flex-basis: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
 
 .btn-delete {
     background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-update {
+    background-color: #1982d1;
     color: white;
     border: none;
     padding: 10px 20px;
