@@ -28,7 +28,7 @@ const UserSchema = new mongoose.Schema({
     lastName: {type:String, default:null},
     contactNumber: {type:String, default:null},
     location: {type:String, default:null},
-    resume: {type:String, default:null},
+    resume: {type:String, default:"./assets/appImages/cvUsersProfile/cv1.pdf"},
     skills: {type:String, default:null},
     education: {type:String, default:null},
     workExperience: {type:String, default:null}, 
@@ -147,6 +147,21 @@ router.put('/apply/:jobId', async (req, res) => {
   } catch (error) {
       console.error('Error applying to job:', error);
       res.status(500).json({ success: false, message: 'Error applying to job' });
+  }
+});
+
+router.get('/profile/:userId', async (req, res) => {
+  try {
+      const userId = req.params.userId;
+      const user = await User.findById(userId); // Busca el usuario por _id
+      console.log(user);
+      if (user) {
+          res.json(user); // Si el usuario existe, devuelve el registro completo en formato JSON
+      } else {
+          res.status(404).json({ message: 'User not found' }); // Si no se encuentra el usuario, devuelve un error 404
+      }
+  } catch (error) {
+      res.status(500).json({ message: 'Error fetching user', error: error.message }); // Maneja cualquier otro error
   }
 });
 

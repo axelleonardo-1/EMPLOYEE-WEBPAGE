@@ -30,6 +30,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
     
         const details = document.createElement('div');
         details.className = 'vacancy-details';
+
+        // Generar el HTML para los enlaces de peopleInterested
+        let peopleInterestedHTML = 'None';
+        if (job.peopleInterested && job.peopleInterested.length > 0) {
+            peopleInterestedHTML = job.peopleInterested.map(id => 
+                `<a class="applier-link" data-id="${id}">${id}</a>`
+            ).join(', '); // Separa los enlaces con comas
+        }
+
         details.innerHTML = `
             <h2>${job.title} - ${job.company.name}</h2>
             <p>Description: ${job.description}</p>
@@ -38,10 +47,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
             <p>Salary Range: $${job.salaryRange.min} - $${job.salaryRange.max}</p>
             <p>Job Type: ${job.jobType}</p>
             <p>Location: ${job.location}</p>
-            <p>People Interested: ${job.peopleInterested && job.peopleInterested.length > 0 ? job.peopleInterested.length : 'None'}</p>
+            <p>People Interested: ${peopleInterestedHTML}</p>
             <button class="btn-delete" data-id="${job._id}">Delete</button>
             <button class="btn-update" data-id="${job._id}" style="background-color: #2C5FDD;">Update</button>
         `;
+
     
         card.appendChild(details);
         container.appendChild(card);
@@ -78,6 +88,29 @@ window.addEventListener('DOMContentLoaded', (event) => {
             // Aquí pondrías la lógica para manejar la actualización
             console.log('Update button clicked with data-id:', event.target.getAttribute('data-id'));
             // Aquí iría el código para manejar la actualización
+        }
+
+        // para los links de applier cuando se realizen los clicks
+        if (event.target.classList.contains('applier-link')) {
+            event.preventDefault();
+            const applierId = event.target.getAttribute('data-id');
+            
+            fetch(`http://localhost:3000/user/profile/${applierId}`) // Asegúrate de que esta URL es correcta
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(applierDetails => {
+                // Almacena los detalles del aplicante en sessionStorage
+                sessionStorage.setItem('selectedApplier', JSON.stringify(applierDetails));
+                // Redirige a la página del perfil del aplicante
+                window.location.href = './applierProfile';
+            })
+            .catch(error => {
+                console.error('Error fetching applier details:', error);
+            });
         }
     });
 });

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publisher Profile</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./styles/publisherProfile.css">
+    <link rel="stylesheet" href="./styles/userprofile.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
     </style>
@@ -38,20 +38,82 @@
 </script>
 
 <div class="container mt-5">
-    <div class="card">
-        <div class="card-body">
-            <h2 class="card-title">User Interested</h2>
-            <br>
-            <p><strong>Email:</strong> johndoe82@example.com</p>
-            <p><strong>Name:</strong> John Doe</p>
-            <p><strong>Contact Number:</strong> 5550123456</p>
-            <p><strong>Location:</strong> Monterrey, México</p>
-            <p><strong>Resume:</strong> <a href="./assets/appImages/cvUsersProfile/cv1.pdf" target="_blank">View CV</a></p>
-            <p><strong>Skills:</strong> Leadership, Project Management, Public Speaking</p>
-            <p><strong>Education:</strong> Instituto Tecnológico, Ingeniero en Sistemas Computacionales, 2010-2014</p>
-            <p><strong>Work Experience:</strong> Tech Company, Desarrollador Senior, 2015-Presente</p>
+    <form id="userProfileForm">
+        <div class="row">
+            <!-- Columna para información del usuario y avatar -->
+            <div class="col-md-4">
+                <img id="userAvatar" alt="User Avatar" class="img-fluid rounded-circle mb-3">
+                <div class="form-group">
+                    <label for="avatar">Avatar</label>
+                    <select class="form-control" id="avatar" name="avatar" disabled>
+                        <option value="">None</option>
+                        <option value="./assets/avatars/avatarAbstract.png">Abstract</option>
+                        <option value="./assets/avatars/avatarAnimal.png">Animal</option>
+                        <option value="./assets/avatars/avatarGeometric.png">Geometric</option>
+                        <option value="./assets/avatars/avatarLandScape.png">Landscape</option>
+                        <option value="./assets/avatars/avatarPerson.png">Person</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control mb-2" id="username" name="username" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control mb-2" id="firstName" name="firstName" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control mb-2" id="lastName" name="lastName" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" class="form-control mb-2" id="location" name="location" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="contactNumber">Contact Number</label>
+                    <input type="text" class="form-control mb-2" id="contactNumber" name="contactNumber" readonly>
+                </div>
+            </div>
+
+            <!-- Columna para habilidades y educación -->
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="skills">Skills</label>
+                    <textarea class="form-control" id="skills" name="skills" rows="3" readonly></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="education">Education</label>
+                    <textarea class="form-control" id="education" name="education" rows="3" readonly></textarea>
+                </div>
+                
+            </div>
+
+            <!-- Columna para experiencia laboral -->
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="workExperience">Work Experience</label>
+                    <textarea class="form-control" id="workExperience" name="workExperience" rows="3" readonly></textarea>
+                </div>
+            </div>
+            
         </div>
-    </div>
+
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group" id="resumeContainer">
+                    <br>
+                    <label for="cvUpload">CV</label>
+                    <input type="file" class="form-control-file" id="cvUpload" name="cv" disabled>
+                </div>
+            </div>
+        </div>
+        
+
+    </form>
 </div>
 
 <!-- Footer -->
@@ -67,5 +129,7 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="/controllers/applierProfile.js"></script>
 </body>
+
 </html>
