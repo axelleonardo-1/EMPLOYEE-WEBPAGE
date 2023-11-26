@@ -49,7 +49,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             <p>Location: ${job.location}</p>
             <p>People Interested: ${peopleInterestedHTML}</p>
             <button class="btn-delete" data-id="${job._id}">Delete</button>
-            <button class="btn-update" data-id="${job._id}" style="background-color: #2C5FDD;">Update</button>
+            <button class="btn-update" data-id="${job._id}">Update</button>
         `;
 
     
@@ -85,10 +85,29 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         // Delegación para el botón de actualizar
         if (event.target.classList.contains('btn-update')) {
-            // Aquí pondrías la lógica para manejar la actualización
-            console.log('Update button clicked with data-id:', event.target.getAttribute('data-id'));
-            // Aquí iría el código para manejar la actualización
+            event.preventDefault();
+            // Obtener el valor de data-id del botón que fue clickeado
+            const jobId = event.target.getAttribute('data-id');
+            console.log('Delete button clicked with data-id:', jobId);
+            
+            // Realizar la solicitud GET al servidor para obtener los detalles del trabajo
+            fetch(`http://localhost:3000/jobs/busqueda/${jobId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(jobDetails => {
+                    // Guardar los detalles del trabajo en sessionStorage
+                    sessionStorage.setItem('jobToUpdate', JSON.stringify(jobDetails.job));
+                    window.location.href = './updateVacant';
+                })
+                .catch(error => {
+                    console.error('Error fetching job details:', error);
+                });
         }
+
 
         // para los links de applier cuando se realizen los clicks
         if (event.target.classList.contains('applier-link')) {
@@ -112,5 +131,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 console.error('Error fetching applier details:', error);
             });
         }
+
     });
 });

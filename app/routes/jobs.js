@@ -200,10 +200,11 @@ router.delete('/delete/:id', async (req, res) => {
 });
 
 router.get('/userApplications/:jobId',async(req,res) => {
+    console.log('entra al fetch ');
     try{
+        console.log('dentro del try');
         const JobId = req.params.jobId;
         const searchedJob = await Job.findById(JobId);
-
         if (!searchedJob) { // no se ha encontrado
             return res.status(404).json({ success: false, message: 'Job not found' });
         }
@@ -215,5 +216,48 @@ router.get('/userApplications/:jobId',async(req,res) => {
         res.status(500).json({ success: false, message: 'Error fetching job' });
     }
 });
+
+// Ruta GET para buscar un trabajo por su _id y devolverlo en la respuesta
+router.get('/busqueda/:jobId', async (req, res) => {
+    try {
+        // Obtener el jobId de los parámetros de la URL
+        const jobId = req.params.jobId;
+        // Buscar el trabajo en la base de datos
+        const job = await Job.findById(jobId);
+
+        // Verificar si se encontró el trabajo
+        if (!job) {
+            // No se encontró el trabajo, devolver un estado 404 con un mensaje
+            return res.status(404).json({ success: false, message: 'Job not found' });
+        }
+        // Se encontró el trabajo, devolverlo como respuesta JSON
+        res.json({ success: true, job: job });
+    } catch (error) {
+        // Hubo un error en la búsqueda, devolver un estado 500 con un mensaje
+        console.error('Error searching for job:', error);
+        res.status(500).json({ success: false, message: 'Error searching for job', error: error.message });
+    }
+});
+
+
+// Ruta PUT para actualizar un trabajo existente
+router.put('/updateJob/:jobId', async (req, res) => {
+    const jobId = req.params.jobId;
+    const jobUpdates = req.body;
+    console.log('dentro de updates');
+    try {
+        // Buscar por _id y actualizar el trabajo
+        const updatedJob = await Job.findByIdAndUpdate(jobId, jobUpdates, { new: true });
+
+        if (!updatedJob) {
+            return res.status(404).json({ success: false, message: 'Job not found' });
+        }
+
+        res.json({ success: true, message: 'Job updated successfully', job: updatedJob });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Error updating job', error: error.message });
+    }
+});
+
 
 module.exports = router;

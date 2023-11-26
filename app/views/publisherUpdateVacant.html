@@ -70,7 +70,13 @@
                     </div>
                     <div class="form-group">
                         <label for="jobType">Job Type</label>
-                        <input type="text" class="form-control" id="jobType" name="jobType" required>
+                        <select class="form-control" id="jobType" name="jobType" required>
+                            <option value="">None</option>
+                            <option value="Full-Time">Full-Time</option>
+                            <option value="Part-Time"">Part-Time</option>
+                            <option value="Internship">Internship</option>
+                            <option value="Remote">Remote</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="location">Location</label>
@@ -83,7 +89,15 @@
                     <h2>Company Details</h2>
                         <div class="form-group">
                             <label for="companyName">Company Name</label>
-                            <input type="text" class="form-control" id="companyName" name="companyName" required>
+                            <select class="form-control" id="companyName" name="companyName" required>
+                                <option value="">None</option>
+                                <option value="Oracle">Oracle</option>
+                                <option value="Amazon"">Amazon</option>
+                                <option value="Gymshark">GymShark</option>
+                                <option value="Costco">Costco</option>
+                                <option value="Nike"">Nike</option>
+                                <option value="Toyota">Toyota</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="companyDescription">Company Description</label>
@@ -91,7 +105,15 @@
                         </div>
                         <div class="form-group">
                             <label for="companyLogo">Company Logo URL</label>
-                            <input type="text" class="form-control" id="companyLogo" name="companyLogo">
+                            <select class="form-control" id="companyLogo" name="companyLogo">
+                                <option value="">None</option>
+                                <option value="./assets/BusinessLogos/oracle.png">Oracle</option>
+                                <option value="./assets/BusinessLogos/amazon.png">Amazon</option>
+                                <option value="./assets/BusinessLogos/gymshark.png">GymShark</option>
+                                <option value="./assets/BusinessLogos/costco.png">Costco</option>
+                                <option value="./assets/BusinessLogos/nike.png">Nike</option>
+                                <option value="./assets/BusinessLogos/toyota.png">Toyota</option>
+                            </select>
                         </div>
                 </div>
             </div>
@@ -104,6 +126,7 @@
     <!-- Include jQuery and Bootstrap if your navbar uses them -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="/controllers/updateJobHandler.js"></script>
 </body>
 
 <footer>
