@@ -64,11 +64,10 @@ const JobSchema = new mongoose.Schema(
                 required: true
             }
         },
-        peopleInterested: [
-            {
-                type: String
-            }
-        ],
+        peopleInterested: {
+            type: [{ type: String }], // Define un array de strings
+            default: [] // Esto asegura que el campo siempre se inicialice como un array vacío
+        },
         postedAt: {
             type: Date,
             default: Date.now()

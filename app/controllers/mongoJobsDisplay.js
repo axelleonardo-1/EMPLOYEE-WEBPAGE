@@ -97,7 +97,6 @@ function applyToJob(event) {
     const userProfile = JSON.parse(user);
     const applications = userProfile.profile.applications;
     const userId = userProfile._id;
-
     // Verificar si ya se ha aplicado a este trabajo
     const hasApplied = applications.some(application => application.id === jobId);
     if (hasApplied) {
@@ -123,7 +122,7 @@ function applyToUser(userId, jobId) {
     .then(data => {
         if (data.success) {
             console.log('Usuario actualizado con éxito:', data);
-            updateSessionStorageUser(data);
+            updateSessionStorageUser(data.user);
             window.location.href = './jobsApplied';
         } else {
             console.error('Error al aplicar al trabajo:', data.message);
@@ -227,5 +226,4 @@ window.addEventListener('DOMContentLoaded', (event) => {
         console.error('Job ID not found in sessionStorage');
     }
 });
-
 
