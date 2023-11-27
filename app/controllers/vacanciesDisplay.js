@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         let peopleInterestedHTML = 'None';
         if (job.peopleInterested && job.peopleInterested.length > 0) {
             peopleInterestedHTML = job.peopleInterested.map(id => 
-                `<a class="applier-link" data-id="${id}">${id}</a>`
+                `<a class="applier-link" data-id="${id}" data2-id="${job._id}">${id}</a>`
             ).join(', '); // Separa los enlaces con comas
         }
 
@@ -112,6 +112,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         // para los links de applier cuando se realizen los clicks
         if (event.target.classList.contains('applier-link')) {
             event.preventDefault();
+
+            const jobId = event.target.getAttribute('data2-id');
             const applierId = event.target.getAttribute('data-id');
             
             fetch(`http://localhost:3000/user/profile/${applierId}`) // Asegúrate de que esta URL es correcta
@@ -122,6 +124,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 return response.json();
             })
             .then(applierDetails => {
+                sessionStorage.setItem('jobSelected',JSON.stringify(jobId));
                 // Almacena los detalles del aplicante en sessionStorage
                 sessionStorage.setItem('selectedApplier', JSON.stringify(applierDetails));
                 // Redirige a la página del perfil del aplicante

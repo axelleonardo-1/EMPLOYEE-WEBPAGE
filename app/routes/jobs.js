@@ -244,6 +244,7 @@ router.get('/busqueda/:jobId', async (req, res) => {
 router.put('/updateJob/:jobId', async (req, res) => {
     const jobId = req.params.jobId;
     const jobUpdates = req.body;
+
     console.log('dentro de updates');
     try {
         // Buscar por _id y actualizar el trabajo
@@ -258,6 +259,37 @@ router.put('/updateJob/:jobId', async (req, res) => {
         res.status(500).json({ success: false, message: 'Error updating job', error: error.message });
     }
 });
+
+// Ruta PUT para eliminar un userId de peopleInterested de un trabajo específico
+router.put('/delete/:jobId', async (req, res) => {
+    const { jobId } = req.params;
+    const { userId } = req.body; // El ID del usuario a eliminar de peopleInterested
+
+    console.log(jobId + "   " + userId);
+
+    try {
+        console.log('dentro del try')
+        // Utilizar $pull para eliminar el userId de peopleInterested
+        const updatedJob = await Job.findByIdAndUpdate(
+            jobId,
+            { $pull: { peopleInterested: userId } },
+            { new: true }
+        );
+
+        console.log(updatedJob);
+
+        if (!updatedJob) {
+            return res.status(404).json({ success: false, message: 'Job not found' });
+        }
+
+        res.json({ success: true, message: 'User removed from peopleInterested successfully', job: updatedJob });
+    } catch (error) {
+        console.error('Error updating job:', error);
+        res.status(500).json({ success: false, message: 'Error updating job', error: error.message });
+    }
+});
+
+
 
 
 module.exports = router;

@@ -34,4 +34,45 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.error('No user data found in sessionStorage.');
     }
+
+
+
+
+    // Evento para el botón de rechazo
+    const rejectButton = document.getElementById('rejectButton');
+    rejectButton.addEventListener('click', function() {
+        const jobId = sessionStorage.getItem('jobSelected');
+        const job = JSON.parse(jobId);
+        const data2 = JSON.parse(userData);
+        const userId = data2._id; // Suponiendo que `data` contiene la información del aplicante
+
+        // Llama a la función de rechazo
+        rejectApplicant(job, userId);
+    });
+
 });
+
+function rejectApplicant(jobId, userId) {
+    fetch(`http://localhost:3000/jobs/delete/${jobId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ 
+            action: 'reject',
+            userId: userId // ID del usuario a eliminar de peopleInterested
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Applicant rejected successfully:', data);
+            window.location.href = './myVacants';
+        } else {
+            alert('Error rejecting applicant:', data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error during fetch:', error);
+    });
+}
