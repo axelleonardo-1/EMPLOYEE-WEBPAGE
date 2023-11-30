@@ -28,11 +28,19 @@
     <div id="navbar-container"></div>
     <script>
         // Cargar la navbar y luego agregar el controlador de eventos al enlace de perfil
-        fetch('./homenavbarLayout.html')
+        fetch('./jobsnavbarLayout.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('navbar-container').innerHTML = data;
-    
+            
+             // Ahora que la navbar está cargada, establecemos el event listener
+            const searchForm = document.querySelector('.form-inline');
+            if (searchForm) {
+                console.log(document.querySelector('.form-inline'))
+                window.setupSearch(searchForm);
+            } else {
+                console.error('Search form not found.');
+            }
             // Después de que la navbar se haya cargado e inyectado en el DOM, agrega el controlador de eventos
             const profileLink = document.getElementById('profileLink');
             if (profileLink) {
@@ -53,7 +61,6 @@
         })
         .catch(error => console.error('Error al cargar la navbar:', error));
         </script>
-
 
     <div class="container mt-5" id="jobs-container">
         <!-- Las tarjetas de trabajo se inyectarán aquí mediante JavaScript (jsondisplays.js) -->

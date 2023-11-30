@@ -16,20 +16,31 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('education').textContent = data.profile.education;
         document.getElementById('workExperience').textContent = data.profile.workExperience;
         
+        const cvUploadElement = document.getElementById('cvUpload');
+        if (cvUploadElement) {
+            if (data.profile.resume) {
+                const resumePreview = document.createElement('iframe');
+                resumePreview.src = data.profile.resume;
+                resumePreview.style.width = '100%';
+                resumePreview.style.height = '700px';
+                resumePreview.setAttribute('type', 'application/pdf');
+                
+                const resumeContainer = document.getElementById('resumeContainer');
+                resumeContainer.innerHTML = '';
+                resumeContainer.appendChild(resumePreview);
+                
+                // Disable the CV upload field if you don't want another CV to be uploaded
+                cvUploadElement.disabled = true;
+            }
+        } else {
+            console.error('cvUpload element not found.');
+        }
+
+
+
         // If there is a PDF in the user profile, show a preview
         if (data.profile.resume) {
-            const resumePreview = document.createElement('iframe');
-            resumePreview.src = data.profile.resume;
-            resumePreview.style.width = '100%';
-            resumePreview.style.height = '700px';
-            resumePreview.setAttribute('type', 'application/pdf');
             
-            const resumeContainer = document.getElementById('resumeContainer');
-            resumeContainer.innerHTML = '';
-            resumeContainer.appendChild(resumePreview);
-            
-            // Disable the CV upload field if you don't want another CV to be uploaded
-            document.getElementById('cvUpload').disabled = true;
         }
     } else {
         console.error('No user data found in sessionStorage.');
@@ -51,6 +62,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 });
+
+
+
 
 function rejectApplicant(jobId, userId) {
     fetch(`http://localhost:3000/jobs/delete/${jobId}`, {
@@ -76,3 +90,4 @@ function rejectApplicant(jobId, userId) {
         console.error('Error during fetch:', error);
     });
 }
+

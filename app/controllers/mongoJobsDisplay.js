@@ -1,5 +1,8 @@
+let allJobs = []; // Variable para almacenar todos los trabajos
 
 window.addEventListener('DOMContentLoaded', (event) => {
+
+    console.log(document.querySelector('.form-inline'))
     fetch('http://localhost:3000/jobs/allJobs')
         .then(response => {
             if (!response.ok) {
@@ -8,12 +11,23 @@ window.addEventListener('DOMContentLoaded', (event) => {
             return response.json();
         })
         .then(jobs => {
-            displayJobs(jobs)
+            allJobs = jobs; // Guarda los trabajos en la variable allJobs
+            displayJobs(allJobs)
         })
         .catch(error => {
             console.error('Error fetching jobs:', error);
         });
+
 });
+
+window.setupSearch = function(searchForm) {
+    searchForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Previene la recarga de la página
+        const searchText = searchForm.querySelector('input[type="search"]').value.toLowerCase();
+        const filteredJobs = allJobs.filter(job => job.company.name.toLowerCase().includes(searchText));
+        displayJobs(filteredJobs); // Muestra solo los trabajos filtrados
+    });
+};
 
 function createJobCard(job) {
     return `
